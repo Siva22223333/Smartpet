@@ -1,0 +1,51 @@
+ {% load  static %} 
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+       <link rel="stylesheet" type="text/css" href="{% static 'LoginStyle.css' %}">
+    </head>
+    <body>
+      
+    <div class="body">
+        <div class="welcome">
+            <p>Welcome's  To Smart pet</p>
+        </div>
+        <div class="card ">
+            <div class="logo-div" >
+                <div>
+                    <img src="{% static 'smartpet.png' %}" alt="logo" >
+                </div>
+            </div>
+            <div class="card_div">
+                
+                <div class="left-flex">
+                    <p class="login" id="login">Login</p> 
+                   
+                </div>
+                <div class="right-flex">
+                    <input type="tel" class="input"  placeholder="Phone Numer" name="Phoneno">
+                    <p class="otp" >We will send you an OTP to verify your identity </p>
+                </div>
+            </div>
+            <div class="submit-btn-flex">
+                <input type="submit" class="submit-btn" onclick="verification()" value="Next">
+            </div>
+            <div class="signin-btn-flex"><p>Don't have an account? </p>
+                <a class="signin-link" href="#signin"> Sign Up</a>
+            </div>
+        </div>
+    </div> 
+    <script>
+        function verification(){
+            
+    let verify = document.getElementById("login");
+    verify.innerText = "Verification";
+}
+
+    </script>
+    </body>
+</html>
