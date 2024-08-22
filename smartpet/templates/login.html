@@ -12,7 +12,7 @@
       
     <div class="body">
         <div class="welcome">
-            <p>Welcome's  To Smart pet</p>
+            <p>Welcome's  To Smart pets</p>
         </div>
         <div class="card ">
             <div class="logo-div" >
@@ -23,16 +23,20 @@
             <div class="card_div">
                 
                 <div class="left-flex">
-                    <p class="login" id="login">Login</p> 
+                    <p class="login" id="login" value="0">Login</p> 
                    
                 </div>
                 <div class="right-flex">
-                    <input type="tel" class="input"  placeholder="Phone Numer" name="Phoneno">
-                    <p class="otp" >We will send you an OTP to verify your identity </p>
+                    <div class="phno-input" >
+                        <input type="tel" class="input" id="input"  placeholder="Phone Numer" name="Phoneno">
+                    </div>
+                    <p class="message" >We will send you an OTP to verify your identity </p>
                 </div>
             </div>
+
             <div class="submit-btn-flex">
-                <input type="submit" class="submit-btn" onclick="verification()" value="Next">
+                <input type="submit" class="submit-btn" onclick="verification()" id="submit" value="Next">
+               
             </div>
             <div class="signin-btn-flex"><p>Don't have an account? </p>
                 <a class="signin-link" href="#signin"> Sign Up</a>
@@ -40,12 +44,41 @@
         </div>
     </div> 
     <script>
-        function verification(){
+        function verification() {
             
-    let verify = document.getElementById("login");
-    verify.innerText = "Verification";
-}
-
+            let verify = document.getElementById("login");
+            let phno_input = document.getElementById("phno-input");
+            let submit_btn_flex=document.getElementById("submit-btn-flex");
+            const container = document.createElement('div');
+            container.classList.add('otp-box');
+            verify.innerText = "OTP Verification";
+           
+            
+            if (input) {
+                input.parentNode.removeChild(input);
+            }
+            
+            for (let i = 1; i <= 4; i++) {
+                const inputbox = document.createElement('input');
+                inputbox.type = 'text';
+                inputbox.maxLength = '1';
+                inputbox.classList.add('otp-input-box');
+                inputbox.addEventListener('input', function() {
+                    if (this.nextElementSibling && this.value) {
+                        this.nextElementSibling.focus();
+                    }
+                });
+                container.appendChild(inputbox);
+            }
+            
+            document.getElementById("submit").disabled = true;
+            document.querySelector('.phno-input').appendChild(container);
+            document.getElementById("submit").value="verify"; 
+            
+            const reload=document.createElement('button');
+            reload.addEventListener()
+        }
+        
     </script>
     </body>
 </html>
