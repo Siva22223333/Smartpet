@@ -7,3 +7,10 @@ from django.template import loader
 def smartpet(request):
     template=loader.get_template('login.html')
     return HttpResponse(template.render())
+
+def signin(request):
+    template=loader.get_template('Signin.html')
+    return HttpResponse(template.render()) 
+
+
+    
