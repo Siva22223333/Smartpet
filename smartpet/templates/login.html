@@ -28,18 +28,19 @@
                 </div>
                 <div class="right-flex">
                     <div class="phno-input" >
-                        <input type="tel" class="input" id="input"  placeholder="Phone Numer" name="Phoneno">
+                        <input type="text" class="input" id="input"  placeholder="Phone Numer" name="Phoneno"  >
                     </div>
                     <p class="message" >We will send you an OTP to verify your identity </p>
                 </div>
             </div>
 
-            <div class="submit-btn-flex">
+            <div class="submit-btn-flex" id="submit_id">
                 <input type="submit" class="submit-btn" onclick="verification()" id="submit" value="Next">
                
             </div>
-            <div class="signin-btn-flex"><p>Don't have an account? </p>
-                <a class="signin-link" href="#signin"> Sign Up</a>
+            <div class="signin-btn-flex" id="change_no">
+                <p id="remove_signup">Don't have an account? </p>
+                <a id="remove_link" class="signin-link" href="/"> Sign Up</a>
             </div>
         </div>
     </div> 
@@ -47,38 +48,63 @@
         function verification() {
             
             let verify = document.getElementById("login");
-            let phno_input = document.getElementById("phno-input");
-            let submit_btn_flex=document.getElementById("submit-btn-flex");
+            let input = document.getElementById("input");
             const container = document.createElement('div');
             container.classList.add('otp-box');
             verify.innerText = "OTP Verification";
-           
             
             if (input) {
                 input.parentNode.removeChild(input);
             }
             
+            otp_value=[];
             for (let i = 1; i <= 4; i++) {
                 const inputbox = document.createElement('input');
-                inputbox.type = 'text';
                 inputbox.maxLength = '1';
+                inputbox.type="text";
                 inputbox.classList.add('otp-input-box');
                 inputbox.addEventListener('input', function() {
                     if (this.nextElementSibling && this.value) {
                         this.nextElementSibling.focus();
-                    }
-                });
+                    };
+                });// OTP input boxes
+
+                otp_value.push(inputbox);
                 container.appendChild(inputbox);
             }
-            
-            document.getElementById("submit").disabled = true;
+            document.getElementById("submit").disabled = false;
             document.querySelector('.phno-input').appendChild(container);
-            document.getElementById("submit").value="verify"; 
-            
-            const reload=document.createElement('button');
-            reload.addEventListener()
+            document.getElementById("submit").value="Verify"; 
+            document.getElementById("submit").onclick=function(){
+                checkotp();
+            }; 
         }
-        
+        function checkotp(){
+            
+                let otp = otp_value.map(input => input.value).join('');  // join the OTP input value
+                alert(otp);
+        }
+
+        document.getElementById("submit").addEventListener('click',function reload() {
+            change_div=document.getElementById("change_no");
+            let reloader=document.createElement('a');
+            reloader.href="/";
+            reloader.classList.add("signin-link");
+            reloader.innerText="To change the phone number click here";
+            change_div.appendChild(reloader);
+            remove_signup=document.getElementById("remove_signup");
+            remove_link=document.getElementById("remove_link");
+            if(remove_signup){
+                remove_signup.parentNode.removeChild(remove_signup);
+            }
+            if(remove_link){
+                remove_link.parentNode.removeChild(remove_link);
+            }
+            document.getElementById("submit").removeEventListener('click', reload);
+        }); 
+            
+
+
     </script>
     </body>
 </html>

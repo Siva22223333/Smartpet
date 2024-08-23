@@ -83,9 +83,7 @@
     height: auto;
     width: auto;
 } 
-.signin-link{
-    text-decoration: none;
-}
+
 .phno-input{
     height: auto;
     width: 77%;
@@ -95,6 +93,11 @@
     height: auto;
     width: auto;
 }
+
+
+/* OTP verification */
+
+
 .otp-input-box{
     height: 32px;
     width: 7%;
@@ -107,4 +110,7 @@
 .otp-box{
     display: flex;
     justify-content: space-between;
+}
+.signin-link{
+    text-decoration: none;
 }
