@@ -49,6 +49,7 @@
     background-color:#f0f4f9 ;
     border-radius: 6px;
     border: 2px solid #6a9fe1;
+    outline: none;
 }
 .welcome{
     height: auto;
@@ -106,6 +107,7 @@
     background-color: #f0f4f9;
     border-radius: 6px;
     border: 2px solid #6a9fe1;
+    outline: none;
 }
 .otp-box{
     display: flex;
@@ -113,4 +115,26 @@
 }
 .signin-link{
     text-decoration: none;
+}
+
+/* Resend button */
+
+.resend_div{
+    height: auto;
+    padding-top: 15px;
+    display: flex;
+    flex-direction: row-reverse;
+    
+}
+.resendBtn{
+    height: auto;
+    width: auto;
+    background-color: white;
+    border: none;
+    color: #6a9fe1;
+    font-size: medium;
+    padding-right: 20%;
+}
+.coundown{
+    padding-right: 10%;
 }
