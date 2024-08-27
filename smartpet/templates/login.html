@@ -96,20 +96,17 @@
             resend_div.appendChild(resend_btn);
             resend_div.appendChild(countdown);
             right_flex.appendChild(resend_div);
-            startCountdown();
+            updateCountdown();
             document.getElementById('resend_btn_id').addEventListener('click', resend_fun);
         }
     
         let countdownTimer;
         let countdownValue;
     
-        function startCountdown() {
+        function updateCountdown() {
             countdownValue = 30;
             document.getElementById('resend_btn_id').disabled = true;
             countdownTimer = setInterval(updateCountdown, 1000);
-        }
-    
-        function updateCountdown() {
             if (countdownValue <= -1) {
                 clearInterval(countdownTimer);
                 document.getElementById('resend_btn_id').disabled = false;
@@ -121,7 +118,7 @@
         }
     
         function resend_fun() {
-            startCountdown();
+            updateCountdown();
         }
         function checkotp() {
             let otp = otp_value.map(input => input.value).join('');  // otp array value to join 

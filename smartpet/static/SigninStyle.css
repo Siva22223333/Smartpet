@@ -120,3 +120,26 @@
     display: flex;
     justify-content: space-between;
 }
+
+/*Resend otp*/
+.resend_div{
+    height: auto;
+    padding-top: 15px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    padding-top: 25px;
+    
+}
+.resendBtn{
+    height: auto;
+    width: auto;
+    background-color: white;
+    border: none;
+    color: #6a9fe1;
+    font-size: medium;
+    padding-right: 20%;
+}
+.coundown{
+    padding-right: 10%;
+}
