@@ -1,0 +1,39 @@
+{% load  static %} 
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/Dashboard.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'search icon.css' %}">
+    </head>
+    <body>
+        <div>
+            <header class="header">
+                <div>
+                    <img src="{% static 'image/smartpet.png' %}" alt="logo"  class="logo">
+                </div>
+                <div class="search-bar-div">
+                    <input type="text" class="search-bar" placeholder="Search">
+                    <button type="submit" class="search-btn-icon">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+                <div class="header-btn">
+                    <button class="login-btn">
+                        <a class="login-link" href="{% url 'login' %}"> Login</a>
+                    </button>
+                    <button class="login-btn">
+                        <a class="login-link" href="{% url 'sell' %}">Sell</a>
+                    </button>
+                    <a href="#">
+                        <img src="{% static 'image/user.png' %}" class="profile">
+                    </a>
+                    
+                </div>
+            </header>
+        </div>
+    </body>
+</html>

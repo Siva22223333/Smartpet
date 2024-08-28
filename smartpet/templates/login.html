@@ -1,4 +1,4 @@
- {% load  static %} 
+{% load  static %} 
 <!DOCTYPE html>
 
 <html>
@@ -130,7 +130,7 @@
         document.getElementById("submit").addEventListener('click', function reload() {
             change_div = document.getElementById("change_no");
             let reloader = document.createElement('a');
-            reloader.href = "/";
+            reloader.href = "#";
             reloader.classList.add("signin-link");
             reloader.innerText = "To change the phone number click here";
             change_div.appendChild(reloader);

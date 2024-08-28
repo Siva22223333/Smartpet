@@ -1,0 +1,71 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    height: 100%;
+    font-family: "Montserrat", sans-serif;
+}
+body{
+    background-color: #f0f4f9;
+}
+.header{
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: auto;
+    padding: 15px;
+    background-color: white;
+}
+
+.logo{
+    height: 63px;
+    width: 100px;
+}
+
+.login-link{
+    text-decoration: none;
+    font-size: larger;
+    font-weight: 400;
+    color: white;
+}
+.login-btn{
+    width: 80px;
+    background-color: #63a8ff;
+    border-radius: 10px;
+    height: 35px;
+    border: none;
+}
+.search-bar{
+    height: 25px;
+    width: 60%;
+    outline-color: #63a8ff;
+    border: 2px solid #6a9fe1;
+    padding: 9px;
+    border-radius: 8px;
+    font-size: large;
+}
+.search-bar-div{
+    height: auto;
+    width: 72%;
+    display: flex;
+    justify-content: center;
+    gap: 7px;
+}
+.header-btn{
+    width: 25%;
+    display: flex;
+    justify-content: space-around;
+}
+.search-btn-icon{
+    height: auto;
+    width: 47px;
+    border: none;
+    padding: 10px;
+    border-radius: 25px;
+    background-color: #e1eeff;
+    font-size: larger;
+}
+.profile{
+    height: 34px;
+    width: 38px;
+}
