@@ -7,33 +7,56 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="{% static 'css/Dashboard.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'search icon.css' %}">
+       
     </head>
     <body>
         <div>
-            <header class="header">
-                <div>
+            <img  src="{% static 'image/3150060.jpg' %}" class="background-img" >
+        
+           <header class="header">
+                <div class="logo-div">
                     <img src="{% static 'image/smartpet.png' %}" alt="logo"  class="logo">
-                </div>
-                <div class="search-bar-div">
-                    <input type="text" class="search-bar" placeholder="Search">
-                    <button type="submit" class="search-btn-icon">
-                        <i class="fa fa-search"></i>
-                    </button>
+                    <p >Smartpet</p>
                 </div>
                 <div class="header-btn">
-                    <button class="login-btn">
-                        <a class="login-link" href="{% url 'login' %}"> Login</a>
-                    </button>
-                    <button class="login-btn">
-                        <a class="login-link" href="{% url 'sell' %}">Sell</a>
-                    </button>
-                    <a href="#">
-                        <img src="{% static 'image/user.png' %}" class="profile">
-                    </a>
+                    <div>
+                        <button class="btn">Home</button>
+                    </div>
+                    <div>
+                        <button class="btn">About</button>
+                    </div>
+                    <div>
+                        <button class="btn">Gallary</button>
+                    </div>
+                    <div>
+                        <button class="btn">Contact</button>
+                    </div>
+                    <div>
+                        <button class="btn">Cart</button>
+                    </div>
                     
                 </div>
-            </header>
+           </header>
+           <div class="welcome-img-div">
+            
+                <div class="welcome-div">
+                    
+                        <p class="welcome">Welcome to SMARTPETS</p>
+                    
+                        <button class="Explore-btn">
+                            Explore More
+                        </button>
+                    
+                </div>
+                <div >
+                    <img class="dog-img" src="{% static 'image/pet.png' %}" >
+                </div>
+            </div> 
+            
         </div>
+        <div class="card">
+
+        </div>   
+
     </body>
 </html>

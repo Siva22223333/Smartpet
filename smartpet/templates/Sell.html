@@ -28,9 +28,11 @@
     <script>
         $(document).ready(function(){
             $.ajax({
-                url: "http://pashumart.seasense.in/api/mobile-animals/",
+                url: "https://api.allorigins.win/get?url=http://pashumart.seasense.in/api/mobile-animals/",
                 method: "GET",
+
                 success: function(data){
+                    
                     var selectBox = $('#select_animal');
                     selectBox.empty();
                     selectBox.append('<option value="">Select an option</option>');  // Add default option
