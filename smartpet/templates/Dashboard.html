@@ -10,13 +10,16 @@
        
     </head>
     <body>
-        <div>
+        <div class="div1">
             <img  src="{% static 'image/3150060.jpg' %}" class="background-img" >
         
            <header class="header">
                 <div class="logo-div">
                     <img src="{% static 'image/smartpet.png' %}" alt="logo"  class="logo">
                     <p >Smartpet</p>
+                    <div class="background-shadow">
+
+                </div>
                 </div>
                 <div class="header-btn">
                     <div>
@@ -41,22 +44,69 @@
             
                 <div class="welcome-div">
                     
-                        <p class="welcome">Welcome to SMARTPETS</p>
-                    
-                        <button class="Explore-btn">
-                            Explore More
-                        </button>
+                        <p class="welcome">Welcome to SMARTPETS</p><br>
+                        <p class="welcome-quotes">It’s impossible to have a human friend without questions</p>
+                        <p class="welcome-quotes"> - but it’s not impossible with pets</p>
+                        <div class="Explore-btn-div">
+                            <button class="Explore-btn">
+                                Explore More
+                            </button>
+                        </div>
+                        
                     
                 </div>
+                
                 <div >
                     <img class="dog-img" src="{% static 'image/pet.png' %}" >
                 </div>
             </div> 
             
         </div>
-        <div class="card">
-
+        <div class="div2">
+            <div class="card">
+                <p class="card-p">Cat</p>
+                <img class="img-cat" src="{% static 'image/cat.png' %}" >
+            </div>
+            <div class="card">
+                <p class="card-p">Dog</p>
+                <img class="img-dog" src="{% static 'image/dog.png' %}" >
+            </div>
+            <div class="card">
+                <p class="card-p">Bird</p>
+                <img class="img-bird" src="{% static 'image/bird.png' %}" >
+            </div>
+            <div class="card">
+                <p class="card-p">Bird</p>
+                <img class="img-bird" src="{% static 'image/bird.png' %}" >
+            </div>
+            <div class="card">
+                <p class="card-p">Cow</p>
+                <img class="img-cow" src="{% static 'image/cow.png' %}" >
+            </div>
+        </div>
+        <div class="div3">
+            <div class="services-div">
+                <P class="services-p">Services</P>
+            </div>
         </div>   
-
+        <script>
+            const element=document.querySelectorAll(".div2");
+            const option={
+                root:null,
+                rootMargin:'0px;',
+                threshold:.4
+            }
+            const callbacks=(entries)=>{
+                entries.forEach(entry => {
+                    if(entry.isIntersecting){
+                        entry.target.classList.add('active');
+                    }
+                });
+            }
+            let observer=new IntersectionObserver(cb,option);
+            elements.forEach(element=>{
+                oberver.observe(element);
+            });
+        </script>
     </body>
 </html>
