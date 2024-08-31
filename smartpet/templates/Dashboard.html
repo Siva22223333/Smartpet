@@ -19,7 +19,7 @@
                     <p >Smartpet</p>
                     <div class="background-shadow">
 
-                </div>
+                    </div>
                 </div>
                 <div class="header-btn">
                     <div>
@@ -62,7 +62,16 @@
             </div> 
             
         </div>
-        <div class="div2">
+        <div class="div2" id="card_container">
+            <div class="card-btn-div">
+                <button class="card-btn" onclick="prev()">
+                    <img class="card-btn-logo-next" src="{% static 'image/prev.png' %}" >
+                </button>
+            </div>
+            <div class="card">
+                <p class="card-p">Cow</p>
+                <img class="img-cow" src="{% static 'image/cow.png' %}" >
+            </div>
             <div class="card">
                 <p class="card-p">Cat</p>
                 <img class="img-cat" src="{% static 'image/cat.png' %}" >
@@ -83,30 +92,90 @@
                 <p class="card-p">Cow</p>
                 <img class="img-cow" src="{% static 'image/cow.png' %}" >
             </div>
+            <div class="card-btn-div">
+                <button class="card-btn" onclick="next()">
+                    <img  class="card-btn-logo-prev" src="{% static 'image/next.png' %}" >
+                </button>
+            </div>
         </div>
         <div class="div3">
+            <div>
             <div class="services-div">
                 <P class="services-p">Services</P>
             </div>
+                <div class="services-div-content">
+                    <div  class="services-content" >
+                        <img src="{% static 'image/animal.png' %}" >
+                        <div class="services-content-animal">
+                            <p class="card-p">Animal</p>
+                            <p class="services-content-animal-p">All our animals love</p>
+                            <p class="services-content-animal-p"> to be petted.</p>
+                        </div>
+                    </div>
+                    <div class="services-content" >
+                        <img src="{% static 'image/guide.png' %}" >
+                        <div class="services-content-animal">
+                            <p class="card-p">Guide</p>
+                            <p class="services-content-animal-p">We have a large selection </p>
+                            <p class="services-content-animal-p">of pets.</p>
+                        </div>
+                    </div>
+                    <div class="services-content">
+                        
+                        <img  src="{% static 'image/pet care.png' %}" >
+                        <div class="services-content-animal">
+                            <p class="card-p">Pet Care</p>
+                            <p class="services-content-animal-p">We care about the  </p>
+                            <p class="services-content-animal-p"> health of all animals.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="div4">
+            
         </div>   
         <script>
-            const element=document.querySelectorAll(".div2");
-            const option={
-                root:null,
-                rootMargin:'0px;',
-                threshold:.4
-            }
-            const callbacks=(entries)=>{
-                entries.forEach(entry => {
-                    if(entry.isIntersecting){
-                        entry.target.classList.add('active');
+            let card_container=document.getElementById("card_container");
+            let cards=card_container.getElementsByClassName("card");
+            let currentIndex=0;
+            let totalcards=cards.length;
+            function updateCards() {
+                for (let i = 0; i < totalcards; i++) {
+                    if(i === currentIndex)
+                    {
+                    cards[i].style.display ='block' 
                     }
-                });
-            }
-            let observer=new IntersectionObserver(cb,option);
-            elements.forEach(element=>{
-                oberver.observe(element);
-            });
+                    else{
+                    cards[i].style.display ='none';
+                    }
+                }
+                }
+                function prev() {
+                    if(currentIndex === 0){
+                        currentIndex =  totalcards - 1 
+                    }
+                    else{
+                        currentIndex = currentIndex - 1;
+                    }
+                    
+                    updateCards();
+                }
+
+                function next() {
+                    if(currentIndex === totalcards - 1)
+                        {
+                            currentIndex = 0 
+                    }
+                    else{
+                        currentIndex = currentIndex + 1;
+                    }
+                    
+                    updateCards();
+                }
+
+                // Initialize the display
+                updateCards();
         </script>
     </body>
 </html>

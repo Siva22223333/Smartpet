@@ -104,7 +104,7 @@ body{
     top: 80%;
     width: 100%;
     height: 30%;
-    animation: slideIn 1s ease-out; 
+    
 }
 .card{
    
@@ -162,9 +162,12 @@ body{
     z-index: -1;
 }
 .div3{
-    height: 75%;
+    height: 50%;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 17%;
+   
 }
 .services-div{
    
@@ -176,6 +179,47 @@ body{
 .services-p{
     font-size: xx-large;
     font-weight: bold;
-    padding-left: 55%;
-    animation: slideIn 1s ease-out; 
+    padding-left: 8%;
+    
+}
+.services-div-content{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.services-content{
+    height: 30%;
+    display: flex;
+    justify-content: center;
+}
+.services-content-animal{
+    height: auto;
+    padding-left: 10px;
+}
+.services-content-animal-p{
+    height: auto;
+}
+.div4{
+    background-color: #a9a9a921;
+}
+.card-btn{
+    height: 26%;
+    width: 59px;
+    background-color: #c7c7c7f0;
+    border: none;
+    border-radius: 58px;
+}
+.card-btn-div{
+    display: flex;
+    align-items: center;
+}
+.card-btn-logo-next{
+    height: 75%;
+    padding-right: 5px;
+}
+.card-btn-logo-prev{
+    height: 75%;
+    padding-left: 5px;
+
 }
