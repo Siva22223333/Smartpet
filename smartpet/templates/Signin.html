@@ -1,0 +1,216 @@
+{% load static  %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/SigninStyle.css' %}">
+    </head>
+    <body>
+        <div class="body">
+            <div class="welcome">
+                <p>Welcome's  To Smart pets</p>
+            </div>
+            <div class="card ">
+                <div class="logo-div" >
+                    <div>
+                        <img src="{% static 'smartpet.png' %}" alt="logo" >
+                    </div>
+                </div>
+                <div class="card_div">
+                    
+                    <div class="left-flex">
+                        <p class="signin" id="Signin" >Create an Account</p> 
+                        <p class="type-view" id="type-view">Enter  Your Name and Phone Number</p>
+                    </div>
+                    <div class="right-flex" id="right_flex">
+                        <div class="input-div" id="input_div1">
+                            <input type="text" class="input" id="name_id" placeholder="Enter Your Name" name="Name">
+                        </div>
+                        <div class="input-div" id="input_div2">
+                            <input type="text" class="input" id="phone_no" placeholder="Enter Your Phone Number"  name="Phone_Number">
+                        </div>
+                        <div class="input-div" id="input_div3">
+                            <input type="text" class="input" id="whatsapp_no" placeholder="Enter Your Whatsapp Number" name="Whatsapp_Number">
+                        </div>
+                    </div>
+                </div>
+                <div class="next-btn-flex" id="next_btn_flex">
+                    <input class="next-btn" type="submit" id="next_btn"  value="Next">
+                </div>
+            </div>
+        </div>
+        <script>
+            document.getElementById("next_btn").addEventListener('click',next);
+            
+            function next(){
+                let type_view=document.getElementById("type-view");
+                let name_id=document.getElementById("name_id");
+                let phone_no=document.getElementById("phone_no");
+                let whatsapp_no=document.getElementById("whatsapp_no");
+                let next_btn=document.getElementById("next_btn");
+                next_btn.remove();
+                name_id.remove();
+                phone_no.remove();
+                whatsapp_no.remove();
+                
+                type_view.innerText="Enter your Address";
+
+                const input_div1 = document.getElementById("input_div1");
+                const input_div2 = document.getElementById("input_div2");
+                const input_div3 = document.getElementById("input_div3");
+                const Address_verify=document.getElementById("next_btn_flex");
+                
+                input_div3.style.display="flex";
+                input_div3.style.gap="20px";
+                input_div3.style.width="98%";
+
+                let Address1=document.createElement('input');
+                Address1.type="text";
+                Address1.id="Address1";
+                Address1.name="Address1_name";
+                Address1.placeholder="Address Line 1";
+                Address1.classList.add("input");
+               
+                    
+
+                let Address2=document.createElement('input');
+                Address2.type="text";
+                Address2.id="Address2";
+                Address2.placeholder="Address Line 2";
+                Address2.classList.add("input");
+
+                let city=document.createElement('input');
+                city.type="text";
+                city.placeholder="City";
+                city.id="city_id";
+                city.classList.add("input_div3");
+                city.required = true;
+
+                let PIN=document.createElement('input');
+                PIN.type="text";
+                PIN.placeholder="Postal Code";
+                PIN.id="pin_id";
+                PIN.classList.add("input_div3");
+                PIN.required = true;
+
+                let verify=document.createElement('input');
+                verify.type="submit";
+                verify.value="Verify";
+                verify.classList.add("next-btn");
+                verify.id="verify_btn_id";
+                
+                input_div1.appendChild(Address1);
+                input_div2.appendChild(Address2);
+                input_div3.appendChild(city);
+                input_div3.appendChild(PIN);
+                Address_verify.appendChild(verify);
+                document.getElementById("verify_btn_id").addEventListener('click',verifyfunction);
+                
+            }
+            otp_value = [];
+            function verifyfunction(){
+                
+                let input_div1=document.getElementById("input_div1");
+                let input_div2=document.getElementById("input_div2");
+                let input_div3=document.getElementById("input_div3");
+                
+                input_div1.remove();
+                input_div2.remove();
+                input_div3.remove();
+
+                document.getElementById("verify_btn_id").disabled =false;
+                right_flex=document.getElementById("right_flex");
+                container=document.createElement('div');
+                container.classList.add("otp-box");
+                
+
+                for (let i = 1; i <= 4; i++) {
+                    const inputbox = document.createElement('input');
+                    inputbox.maxLength = '1';
+                    inputbox.id=`otp_box_id${i}`;
+                    inputbox.type = "text";
+                    inputbox.classList.add('otp-input-box');
+                    inputbox.addEventListener('input', function() {
+                        if (this.nextElementSibling && this.value) {
+                            this.nextElementSibling.focus();
+                        }
+                    });
+                    
+
+                    otp_value.push(inputbox);
+                    container.appendChild(inputbox)
+                    right_flex.appendChild(container);
+                }
+
+                    let type_view = document.getElementById("type-view");
+                    type_view.innerText = "OTP Verification";
+
+                    document.getElementById("verify_btn_id").value = "Verify";
+                    document.getElementById("verify_btn_id").onclick = function() {
+                        checkotp(); // function calling
+                    };
+                    const Address_verify=document.getElementById("next_btn_flex");
+                    const resend_div = document.createElement('div');
+                    resend_div.classList.add("resend_div");
+                    const resend_btn = document.createElement('button');
+                    const countdown = document.createElement('p');
+                    countdown.id = "timer";
+                    countdown.classList.add("coundown");
+                    resend_btn.value = "resend";
+                    resend_btn.id = "resend_btn_id";
+                    resend_btn.innerHTML = "Resend";
+                    resend_btn.classList.add("resendBtn");
+                    
+                    resend_div.appendChild(resend_btn);
+                    resend_div.appendChild(countdown);
+                    right_flex.appendChild(resend_div);
+                    
+                    document.getElementById("verify_btn_id").removeEventListener('click',verifyfunction);
+
+                    startCountdown();
+                    document.getElementById('resend_btn_id').addEventListener('click', resend_fun);
+                    
+            }
+
+
+            let countdownTimer;
+            let countdownValue;
+    
+            function startCountdown() {
+                countdownValue = 30;
+                document.getElementById('resend_btn_id').disabled = true;
+                countdownTimer = setInterval(updateCountdown, 1000);
+            }
+    
+            function updateCountdown() {
+                if (countdownValue <= -1) {
+                    clearInterval(countdownTimer);
+                    document.getElementById('resend_btn_id').disabled = false;
+                    document.getElementById('timer').textContent = '';
+                } else {
+                    document.getElementById('timer').innerHTML = "Resend in " + countdownValue+ " seconds";
+                    countdownValue--;
+                }
+            }
+    
+            function resend_fun() {
+                startCountdown();
+            }
+
+
+            function checkotp() {
+                let otp = otp_value.map(input => input.value).join('');  // otp array value to join 
+                if(!isNaN(otp)){
+                    alert(otp);
+                }
+                else{
+                    alert("Not a Number");
+                }
+                
+            }
+            
+        </script>
+    </body> 
+</html>

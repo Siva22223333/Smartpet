@@ -1,0 +1,150 @@
+{% load  static %} 
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{% static 'LoginStyle.css' %}">
+    </head>
+    <body>
+      
+    <div class="body">
+        <div class="welcome">
+            <p>Welcome's  To Smart pets</p>
+        </div>
+        <div class="card ">
+            <div class="logo-div" >
+                <div>
+                    <img src="{% static 'smartpet.png' %}" alt="logo" >
+                </div>
+            </div>
+            <div class="card_div">
+                
+                <div class="left-flex">
+                    <p class="login" id="login" value="0">Login</p> 
+                   
+                </div>
+                <div class="right-flex" id="right_flex">
+                    <div class="phno-input" >
+                        <input type="text" class="input" id="input"  placeholder="Phone Numer" name="Phoneno"  >
+                    </div>
+                    <p class="message" id="otp_message" >We will send you an OTP to verify your identity </p>
+                </div>
+            </div>
+
+            <div class="submit-btn-flex" id="submit_id">
+                <input type="submit" class="submit-btn" onclick="verification()" id="submit" value="Next">
+               
+            </div>
+            <div class="signin-btn-flex" id="change_no">
+                <p id="remove_signup">Don't have an account? </p>
+                <a id="remove_link" class="signin-link" href="{% url 'signin' %}"> Sign Up</a>
+            </div>
+        </div>
+    </div> 
+    <script>
+        function verification() {
+            let verify = document.getElementById("login");
+            let input = document.getElementById("input");
+            const container = document.createElement('div');
+            let otp_message = document.getElementById("otp_message");
+            container.classList.add('otp-box');
+            verify.innerText = "OTP Verification";
+            if (input) {
+                input.parentNode.removeChild(input);
+            }
+            // Create OTP input boxes
+            otp_value = [];
+            for (let i = 1; i <= 4; i++) {
+                const inputbox = document.createElement('input');
+                inputbox.maxLength = '1';
+                inputbox.type = "text";
+                inputbox.classList.add('otp-input-box');
+                inputbox.addEventListener('input', function() {
+                    if (this.nextElementSibling && this.value) {
+                        this.nextElementSibling.focus();
+                    }
+                });
+    
+                otp_value.push(inputbox);
+                container.appendChild(inputbox);
+            }
+            document.getElementById("submit").disabled = false;
+            document.querySelector('.phno-input').appendChild(container);
+            document.getElementById("submit").value = "Verify";
+            document.getElementById("submit").onclick = function() {
+                checkotp(); // function calling
+            };
+    
+            // Resend OTP
+            if (otp_message) {
+                otp_message.parentNode.removeChild(otp_message);
+            }
+            const right_flex = document.getElementById("right_flex");
+            const resend_div = document.createElement('div');
+            resend_div.classList.add("resend_div");
+            const resend_btn = document.createElement('button');
+            const countdown = document.createElement('p');
+            countdown.id = "timer";
+            countdown.classList.add("coundown");
+            resend_btn.value = "resend";
+            resend_btn.id = "resend_btn_id";
+            resend_btn.innerHTML = "Resend";
+            resend_btn.classList.add("resendBtn");
+            resend_div.appendChild(resend_btn);
+            resend_div.appendChild(countdown);
+            right_flex.appendChild(resend_div);
+            updateCountdown();
+            document.getElementById('resend_btn_id').addEventListener('click', resend_fun);
+        }
+    
+        let countdownTimer;
+        let countdownValue;
+    
+        function updateCountdown() {
+            countdownValue = 30;
+            document.getElementById('resend_btn_id').disabled = true;
+            countdownTimer = setInterval(updateCountdown, 1000);
+            if (countdownValue <= -1) {
+                clearInterval(countdownTimer);
+                document.getElementById('resend_btn_id').disabled = false;
+                document.getElementById('timer').textContent = '';
+            } else {
+                document.getElementById('timer').innerHTML = "Resend in " + countdownValue+ " seconds";
+                countdownValue--;
+            }
+        }
+    
+        function resend_fun() {
+            updateCountdown();
+        }
+        function checkotp() {
+            let otp = otp_value.map(input => input.value).join('');  // otp array value to join 
+            alert(otp);
+        }
+    
+        // Reload function
+        // To change the phone number click here  
+        document.getElementById("submit").addEventListener('click', function reload() {
+            change_div = document.getElementById("change_no");
+            let reloader = document.createElement('a');
+            reloader.href = "#";
+            reloader.classList.add("signin-link");
+            reloader.innerText = "To change the phone number click here";
+            change_div.appendChild(reloader);
+            remove_signup = document.getElementById("remove_signup");
+            remove_link = document.getElementById("remove_link");
+            if (remove_signup) {
+                remove_signup.parentNode.removeChild(remove_signup);
+            }
+            if (remove_link) {
+                remove_link.parentNode.removeChild(remove_link);
+            }
+            document.getElementById("submit").removeEventListener('click', reload);
+        });
+    </script>
+    
+    </body>
+</html>
