@@ -38,7 +38,7 @@
         </div> 
     </div>
     <div class="div2" id="card_container">
-        <div class="card-btn-div">
+        <div class="prev-btn-div">
             <button class="prev-btn">
                 <img class="card-btn-logo-prev" src="{% static 'image/prev.png' %}" >
             </button>
@@ -46,7 +46,7 @@
         <div class="card-container" id="card_container_inner">
            
         </div>
-        <div class="card-btn-div">
+        <div class="next-btn-div">
             <button class="next-btn" >
                 <img class="card-btn-logo-next" src="{% static 'image/next.png' %}" >
             </button>
@@ -87,14 +87,24 @@
         
     </div>   
     <script>
-        const cardContainer = document.getElementById("card_container_inner");
+            const cardContainer = document.getElementById("card_container_inner");
+            const itemsPerPage = 2;
+            let currentPage = 0;
+            let cards = [];
         
-
-        async function fetchCard() {
+            async function fetchCard() {
                 const response = await fetch("http://pashumart.seasense.in/api/mobile-animals/");
-                const cardJson = await response.json();
-                total_cards = cardJson.length;
-                cardJson.forEach(card => {
+                cards = await response.json();
+                renderCards();
+            }
+        
+            function renderCards() {
+                cardContainer.innerHTML = ''; 
+                const startIndex = currentPage * (itemsPerPage-1);
+                const endIndex = (startIndex+1) + (itemsPerPage+2);
+                const cardsToShow = cards.slice(startIndex, endIndex);
+                
+                cardsToShow.forEach(card => {
                     const cardElement = document.createElement('div');
                     cardElement.className = 'card';
                     cardElement.innerHTML = 
@@ -105,11 +115,27 @@
                             <img class="card-img" src="http://pashumart.seasense.in/${card.photo}/">
                         </div>`;
                     cardContainer.appendChild(cardElement);
-                    let length=cardJson.length;
                 });
-        }
-        fetchCard();
+            }
         
+            function showNextPage() {
+                if ((currentPage + 1) * itemsPerPage < cards.length) {
+                    currentPage++;
+                    renderCards();
+                }
+            }
+        
+            function showPreviousPage() {
+                if (currentPage > 0) {
+                    currentPage--;
+                    renderCards();
+                }
+            }
+        
+            document.querySelector('.next-btn').addEventListener('click', showNextPage);
+            document.querySelector('.prev-btn').addEventListener('click', showPreviousPage);
+        
+            fetchCard();
     </script>
 </body>
 </html>
