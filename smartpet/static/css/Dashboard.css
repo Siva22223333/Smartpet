@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     font-family: "Montserrat", sans-serif;
+    height: 100%;
 }
 @keyframes slideIn {
     from {
@@ -31,7 +32,10 @@ body {
     top: 0;
     z-index: -1;
 }
-
+.menu-btn{
+    height: 20px;
+    width: 25px;
+}
 .logo {
     height: 63px;
     width: 100px;
@@ -65,6 +69,8 @@ body {
     background: none;
     font-size: medium;
     font-weight: 500;
+    height: 40px;
+    width: 40px;
 }
 
 .welcome-img-div {
@@ -83,17 +89,20 @@ body {
     animation: slideIn 1s ease-out; 
     font-size: 40px;
     font-weight: 500;
+    height: auto;
 }
 
 .welcome-quotes {
     font-size: large;
     animation: slideIn 1s ease-out; 
+    height: auto;
 }
 
 .Explore-btn {
     animation: slideIn 1s ease-out; 
     height: 45px;
     width: 42%;
+    color: white;
     font-size: x-large;
     border-radius: 30px;
     border: none;
@@ -102,13 +111,14 @@ body {
 
 .Explore-btn-div {
     padding-top: 20px;
+    height: auto;
 }
 
 .div2 {
     display: flex;
     justify-content: center;
     position: absolute;
-    top: 78%;
+    top: 80%;
     width: 100%;
     height: 30%;
     
@@ -141,6 +151,7 @@ body {
 }
 .card-content {
     padding: 10px;
+    height: auto;
 }
 .card-img-div{
     display: flex;
@@ -172,12 +183,13 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-top: 17%;
+    padding-top: 10%;
 }
 
 .services-div {
     display: flex;
     flex-direction: row;
+    height: auto;
 }
 
 .services-p {
@@ -192,6 +204,7 @@ body {
     align-items: center;
     justify-content: space-around;
     padding-top: 7%;
+    height: auto;
 }
 
 .services-content {
@@ -202,10 +215,12 @@ body {
 
 .services-content img {
     max-width: 100px; 
+    height: auto;
 }
 
 .services-content-animal {
     padding-left: 10px;
+    height: auto;
 }
 
 .div4 {
