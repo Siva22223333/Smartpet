@@ -2,10 +2,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'css/Dashboard.css' %}">
+    
 </head>
 <body>
     <div class="div1">
@@ -19,10 +21,9 @@
             </div>
             <div class="header-btn">
                 <button class="btn">Home</button>
-                <button class="btn">About</button>
+                <button class="btn" onclick="card_container">About</button>
                 <button class="btn">Gallary</button>
                 <button class="btn">Contact</button>
-                <button class="btn"></button>
             </div>
         </header>
         <div class="welcome-img-div">
@@ -84,7 +85,9 @@
         </div>
     </div>
     <div class="div4">
-        
+        <div class="learnmore">
+            <img src="{% static 'image/dog1.png' %}" >
+        </div>
     </div>   
     <script>
             const cardContainer = document.getElementById("card_container_inner");

@@ -2,8 +2,8 @@
     padding: 0;
     margin: 0;
     font-family: "Montserrat", sans-serif;
-    height: 100%;
 }
+
 @keyframes slideIn {
     from {
         transform: translateX(-100%);
@@ -14,6 +14,7 @@
         opacity: 1;
     }
 }
+
 body {
     background-color: #e0e6ed;
 }
@@ -31,11 +32,14 @@ body {
     left: 0;
     top: 0;
     z-index: -1;
+    object-fit: cover;
 }
-.menu-btn{
+
+.menu-btn {
     height: 20px;
     width: 25px;
 }
+
 .logo {
     height: 63px;
     width: 100px;
@@ -61,7 +65,7 @@ body {
     display: flex;
     flex-direction: row;
     gap: 50px;
-    padding-right: 10%;
+    padding-right: 7%;
 }
 
 .btn {
@@ -70,7 +74,8 @@ body {
     font-size: medium;
     font-weight: 500;
     height: 40px;
-    width: 40px;
+    width: 65px;
+    cursor: pointer; /* Added */
 }
 
 .welcome-img-div {
@@ -86,7 +91,7 @@ body {
 }
 
 .welcome {
-    animation: slideIn 1s ease-out; 
+    animation: slideIn 1s ease-out;
     font-size: 40px;
     font-weight: 500;
     height: auto;
@@ -94,12 +99,12 @@ body {
 
 .welcome-quotes {
     font-size: large;
-    animation: slideIn 1s ease-out; 
+    animation: slideIn 1s ease-out;
     height: auto;
 }
 
 .Explore-btn {
-    animation: slideIn 1s ease-out; 
+    animation: slideIn 1s ease-out;
     height: 45px;
     width: 42%;
     color: white;
@@ -107,6 +112,7 @@ body {
     border-radius: 30px;
     border: none;
     background-color: #657fff;
+    cursor: pointer; /* Added */
 }
 
 .Explore-btn-div {
@@ -118,10 +124,10 @@ body {
     display: flex;
     justify-content: center;
     position: absolute;
-    top: 80%;
-    width: 100%;
+    top: 78%;
+    width: 96%;
     height: 30%;
-    
+    padding-left: 20px;
 }
 
 .card-container {
@@ -131,7 +137,7 @@ body {
 }
 
 .card {
-    box-shadow: 0px 0px 0px 0px;
+    box-shadow: none;
     width: 202px;
     background-color: white;
     border-radius: 15px;
@@ -142,21 +148,18 @@ body {
     height: auto;
     overflow: hidden;
 }
-.card-img-div{
-    display: flex;
-    height: 62%;
-    width: 80%;
-    align-items: center;
-    justify-content: center;
-}
-.card-content {
-    padding: 10px;
-    height: auto;
-}
-.card-img-div{
+
+.card-img-div {
     display: flex;
     height: 63%;
     width: 86%;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-content {
+    padding: 10px;
+    height: auto;
 }
 
 .card-p {
@@ -174,7 +177,7 @@ body {
     width: 23%;
     right: 10%;
     border-radius: 100%;
-    filter: blur(45px);
+    filter: blur(30px);
     z-index: -1;
 }
 
@@ -214,7 +217,7 @@ body {
 }
 
 .services-content img {
-    max-width: 100px; 
+    max-width: 100px;
     height: auto;
 }
 
@@ -224,8 +227,10 @@ body {
 }
 
 .div4 {
-
-    background-color: #a9a9a921;
+    height: 75%;
+    background-color: #bbffd7;
+    display: flex;
+    width: 100%;
 }
 
 .prev-btn, .next-btn {
@@ -234,6 +239,7 @@ body {
     background-color: #c7c7c7f0;
     border: none;
     border-radius: 58px;
+    cursor: pointer;
 }
 
 .prev-btn-div {
@@ -241,6 +247,7 @@ body {
     align-items: center;
     padding-right: 40px;
 }
+
 .next-btn-div {
     display: flex;
     align-items: center;
@@ -250,7 +257,8 @@ body {
 .card-btn-logo-next, .card-btn-logo-prev {
     height: 75%;
 }
-.card-img{
+
+.card-img {
     width: 100%;
     height: 100%;
     object-fit: fill;
