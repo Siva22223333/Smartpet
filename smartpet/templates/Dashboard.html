@@ -7,25 +7,41 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'css/Dashboard.css' %}">
-    
+    <meta name="viewport"content="width=device-width,initial-scale=1.0">
 </head>
 <body>
     <div class="div1">
         <img src="{% static 'image/3150060.jpg' %}" class="background-img" >
     
-        <header class="header">
+        <header class="header" id="header">
             <div class="logo-div">
+            <div>
                 <img src="{% static 'image/smartpet.png' %}" alt="logo" class="logo">
+            </div>
+                
                 <p>Smartpet</p>
                 <div class="background-shadow"></div>
             </div>
-            <div class="header-btn">
+            <div >
+                <div  class="header-btn" id="header_btn">
+                    <button class="btn">Home</button>
+                    <button class="btn" onclick="card_container">About</button>
+                    <button class="btn">Gallary</button>
+                    <button class="btn">Contact</button>
+                    
+                </div>
+                <button class="menu-btn" id="menu_btn" onclick="openmenu()">menu</button>
+                
+            </div>
+        </header>
+        <div class="menu-btn-div" id="menu_btn_div">
+            <div class="menu-btn-div2">
                 <button class="btn">Home</button>
-                <button class="btn" onclick="card_container">About</button>
+                <button class="btn">About</button>
                 <button class="btn">Gallary</button>
                 <button class="btn">Contact</button>
             </div>
-        </header>
+        </div>
         <div class="welcome-img-div">
             <div class="welcome-div">
                 <p class="welcome">Welcome to SMARTPETS</p><br>
@@ -86,7 +102,7 @@
     </div>
     <div class="div4">
         <div class="learnmore">
-            <img src="{% static 'image/dog1.png' %}" >
+            
         </div>
     </div>   
     <script>
@@ -122,7 +138,7 @@
             }
         
             function showNextPage() {
-                if ((currentPage + 1) * itemsPerPage < cards.length) {
+                if ((currentPage + 1) * (itemsPerPage) < cards.length) {
                     currentPage++;
                     renderCards();
                 }
@@ -139,6 +155,20 @@
             document.querySelector('.prev-btn').addEventListener('click', showPreviousPage);
         
             fetchCard();
+
+            function openmenu(){
+                
+                if (document.getElementById("menu_btn_div").style.display ==="block")
+                {   
+                    document.getElementById("menu_btn_div").style.display="none";
+                }else
+                {
+                    document.getElementById("menu_btn_div").style.display="block";
+                }
+                
+            }
+
+            
     </script>
 </body>
 </html>
