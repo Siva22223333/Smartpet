@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="div1">
-        <img src="{% static 'image/3150060.jpg' %}" class="background-img" >
+        <img src="{% static 'image/315006.jpg' %}" class="background-img" >
     
         <header class="header" id="header">
             <div class="logo-div">
@@ -26,7 +26,7 @@
                 <div  class="header-btn" id="header_btn">
                     <button class="btn">Home</button>
                     <button class="btn" onclick="card_container">About</button>
-                    <button class="btn">Gallary</button>
+                    <button class="btn">Servives</button>
                     <button class="btn">Contact</button>
                     
                 </div>
@@ -147,12 +147,20 @@
             <p class="div6-p">Join the SmartPets Family Today!</p>
         </div>
         <div class="div6-div2">
-            <div class="div-right-div6">
-                
-            </div>
             <div class="div-left-div6">
-                <p class="div6-left-p1">Download SMARTPETS App Today!</p>
-                <p class="div6-left-p2"> Because at SmartPets, we know that happy pets make happy homes.</p>
+                <img src="{% static 'image/16.png' %}" class="div6-img-slides slide_img fade">
+                <img src="{% static 'image/17.png' %}" class="div6-img-slides slide_img fade">
+                <img src="{% static 'image/18.png' %}" class="div6-img-slides slide_img fade">
+                <img src="{% static 'image/19.png' %}" class="div6-img-slides slide_img fade">
+            </div>
+            <div class="div-right-div6">
+            <div class="div6-right-div1">
+                <p class="div6-right-p1">Download SMARTPETS App Today!</p>
+                <p class="div6-right-p2"> Because at SmartPets, we know that happy pets make happy homes.</p>
+            </div>
+            <div class="div6-right-div2">
+                <img src="{% static 'image/download.png' %} " class="div6-right-img1" >
+            </div>
             </div>
         </div>
     </div>  
@@ -168,7 +176,7 @@
                     <p class="div7-p2">+380 00 467 37 39</p>
                 </div>
                 <div class="div7-div2-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d987.0007797168262!2d77.22279889048748!3d8.30248690000002!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b04551342c39167%3A0xaaef7cb5ea28b8d2!2sSea%20Sense%20Group%20of%20Companies!5e0!3m2!1sen!2sin!4v1725950587553!5m2!1sen!2sin" width="600" height="450"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>                </div>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d987.0007797168262!2d77.22279889048748!3d8.30248690000002!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b04551342c39167%3A0xaaef7cb5ea28b8d2!2sSea%20Sense%20Group%20of%20Companies!5e0!3m2!1sen!2sin!4v1725950587553!5m2!1sen!2sin" width="600" height="450"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
             </div>
             <div class="div7-div3">
                 <div class="div7-footer">
@@ -262,8 +270,24 @@
                 }
                 
             }
-
             
+            let slide_index=0;
+            function show_slides()
+            {
+                let slides=document.getElementsByClassName("slide_img");
+                for( let i=0;i<slides.length;i++){
+                    slides[i].style.display="none";
+                }
+                slide_index++;
+                if(slide_index > slides.length){
+                    slide_index=1
+                }
+                slides[slide_index-1].style.display="block";
+                setTimeout(show_slides, 2000);
+            }
+            window.onload = function() {
+                show_slides();
+            };
     </script>
 </body>
 </html>
