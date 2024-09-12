@@ -75,12 +75,14 @@
     height: 63px;
     width: 100px;
 }
-
+.name-logo{
+    display: block;
+    font-size: x-large;
+}
 .logo-div {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: x-large;
 }
 
 .header {
@@ -160,7 +162,7 @@
     display: flex;
     justify-content: center;
     position: absolute;
-    top: 78%;
+    top: 80%;
     width: 94%;
     height: 30%;
     padding-left: 20px;
@@ -239,7 +241,7 @@
 .services-p {
     font-size: xx-large;
     font-weight: bold;
-    padding-left: 8%;
+    padding-left: 6%;
 }
 
 .services-div-content {
@@ -318,6 +320,7 @@
     font-weight: 600;
     color: #f15507;
     display: none;
+    padding-top: 16px;
 }
 .div4-div1{
     height: auto;
@@ -333,10 +336,9 @@
     display: flex;
     flex-basis: 50%;
     flex-direction: column;
-    padding-top: 7%;
 }
 .div4-left-div{
-    padding: 43px;
+    padding-left: 43px;
     display: flex;
     flex-basis: 50%;
     height: 410px;
@@ -345,7 +347,7 @@
     font-size: 40px;
     font-weight: 600;
     height: auto;
-    padding-bottom: 8%;
+    padding: 102px 0px 43px 0px;
 }
 .div4-p2{
     font-size: larger;
@@ -382,7 +384,7 @@
 }
 .div5-div2{
     display: flex;
-   
+    gap: 10px;
 }
 .div-left-div5{
     display: flex;
@@ -393,7 +395,7 @@
 .div-right-div5{
     display: flex;
     flex-basis: 50%;
-    height: 62%;
+    height: auto;
     justify-content: center;
 }
 .div5-p{
@@ -564,7 +566,24 @@ iframe{
     text-decoration: none;
     color: black;
 }
+@media screen and ( max-width:1024px ) {
+    .div2{
+        top: 80%;
+    }
+    .welcome-img-div {
+        padding-top: 49px
+    }
+}
 @media screen and ( max-width:768px ) {
+    .div1 {
+        height: 90%;
+    }
+    .div2{
+        top: 75%;
+    }
+    .services-content img {
+        padding: 10px;
+    }
     .menu-btn{
         display:block;
         
@@ -600,7 +619,7 @@ iframe{
         padding-left: 24px;
     }
     .div3{
-        height: 90%;
+        height: 95%;
         padding-top: 0%;
     }
     .div7-div2-map{
@@ -619,10 +638,56 @@ iframe{
     .div7-footer{
         padding: 15px 0px 0px 21px;
     }
+    .div5-p2 {
+        font-size: large;
+        padding-top: 29px;
+    }
+    .div-right-div5{
+        align-items: center;
+    }
+    .div5-p {
+        font-size: 33px;
+    }
+    .see-more{
+        width: 30%;
+        height: 48px;
+    }
+    .div4-p {
+        font-size: 33px;
+    }
+    .div-img-div5 {
+        height: 197px;
+    }
+    .div6-right-p1 {
+        font-size: x-large;
+    }
+    .div6-right-p2 {
+        font-size: large;
+    }
+    iframe{
+        width: 94%;
+    }
 }
 @media screen and (max-width: 562px){
+
+    .div1 {
+        height: 70%;
+    }
+    .div2{
+        top: 55%;
+    }
+    .div3 {
+        height: 80%;
+    }
+    .services-content img {
+        max-width: 90px;
+        height: 64%;
+    }
     .background-img {
         height: 100%;
+    }
+    .name-logo{
+        font-size: large;
     }
     .welcome-img-div {
         padding-bottom: 35px;
@@ -644,7 +709,7 @@ iframe{
         flex-direction: column-reverse;
     }
     .div-left-div5 {
-        
+        padding: 28px;
         align-items: center;
         align-content: center;
         justify-content: center;
@@ -667,6 +732,7 @@ iframe{
     }
     .div4-p {
         font-size: 20px;
+        padding: 41px 0px 43px 0px;
     }
     .see-more {
         font-size: smaller;
@@ -728,6 +794,8 @@ iframe{
     }
     .div6-right-div2 {
         justify-content: center;
+        height: 20%;
+        padding-top: 10px;
     }   
     .see-more-div{
         justify-content: center;
@@ -751,10 +819,41 @@ iframe{
     .div7-footer-a {
         font-size: small;
     }
+    .services-p {
+        font-size: larger;
+    }
+    .card-p{
+        font-size: medium;
+    }
+    .services-content-animal-p {
+        font-size: smaller;
+    }
+    .div4-right-div{
+        padding: 23px;
+    }
+    .div-right-div6 {
+        padding: 23px;
+    }
 }
 @media screen and (max-width:320px){
     .welcome {
         font-size: 21px;
+    }
+    .div1 {
+        height: 60%;
+    }
+    .div2{
+        top: 45%;
+    }
+    .div3 {
+        height: 80%;
+        padding-top: 0%;
+    }
+    .services-content img {
+        height: 62%;
+    }
+    .name-logo {
+        display: none;
     }
     .Explore-btn{
         font-size: medium;
@@ -768,7 +867,7 @@ iframe{
         flex-direction: column-reverse;
     }
     .div-left-div5 {
-        padding-left: 64px;
+        padding: 23px;
         align-items: center;
         align-content: center;
         justify-content: center;
@@ -852,6 +951,9 @@ iframe{
     }
     .div6-right-div2 {
         justify-content: center;
+        height: 20%;
+        padding-top: 10px;
+        
     }   
     .see-more-div{
         justify-content: center;
@@ -871,5 +973,25 @@ iframe{
     }
     .div7-footer-a {
         font-size: small;
+    }
+    .services-p {
+        font-size: larger;
+    }
+    .card-p{
+        font-size: medium;
+    }
+    .services-content-animal-p {
+        font-size: smaller;
+    }
+    .div4-right-div{
+        padding: 23px;
+    }
+    .div-right-div6 {
+        padding: 23px;
+    }
+    .menu-btn-div2{
+        top: 17%;
+        right: 64px;
+    
     }
 } 

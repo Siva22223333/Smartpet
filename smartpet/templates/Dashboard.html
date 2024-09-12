@@ -11,16 +11,15 @@
 </head>
 <body>
     <div class="div1">
-        <img src="{% static 'image/315006.jpg' %}" class="background-img" >
+        <img src="{% static 'image/3150060.jpg' %}" class="background-img" >
     
         <header class="header" id="header">
             <div class="logo-div">
             <div>
                 <img src="{% static 'image/smartpet.png' %}" alt="logo" class="logo">
             </div>
+                <p class="name-logo">Smartpet</p>
                 
-                <p>Smartpet</p>
-                <div class="background-shadow"></div>
             </div>
             <div >
                 <div  class="header-btn" id="header_btn">
@@ -30,7 +29,9 @@
                     <button class="btn">Contact</button>
                     
                 </div>
-                <button class="menu-btn" id="menu_btn" onclick="openmenu()">menu</button>
+                <button class="menu-btn" id="menu_btn" onclick="openmenu()">
+                    <img src="{% static 'image/menu.png' %}" >
+                </button>
                 
             </div>
         </header>
@@ -50,7 +51,7 @@
                 <div class="Explore-btn-div">
                     <button class="Explore-btn">Explore More</button>
                 </div>
-            </div>
+            </div><div class="background-shadow"></div>
             <img class="dog-img" src="{% static 'image/pet.png' %}" >
         </div> 
     </div>
@@ -102,7 +103,7 @@
     </div>
     <div class="div4">
         <div class="div4-div1">
-            <p class="div4-div1-p">SmartPet</p>
+            <p class="div4-div1-p">SmartPets</p>
         </div>
         <div class="div4-div2">
             <div class="div4-left-div">
@@ -264,12 +265,14 @@
                 if (document.getElementById("menu_btn_div").style.display ==="block")
                 {   
                     document.getElementById("menu_btn_div").style.display="none";
-                }else
+                }
+                else
                 {
                     document.getElementById("menu_btn_div").style.display="block";
                 }
                 
             }
+
             
             let slide_index=0;
             function show_slides()
