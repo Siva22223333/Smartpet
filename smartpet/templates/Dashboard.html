@@ -29,20 +29,22 @@
                     <button class="btn">Contact</button>
                     
                 </div>
+                <div class="menu-btn-div" id="menu_btn_div">
+                    <div class="menu-btn-div2">
+                        <button class="btn">Home</button>
+                        <button class="btn">About</button>
+                        <button class="btn">Gallary</button>
+                        <button class="btn">Contact</button>
+                    </div>
+                </div>
                 <button class="menu-btn" id="menu_btn" onclick="openmenu()">
                     <img src="{% static 'image/menu.png' %}" >
                 </button>
                 
             </div>
+            
         </header>
-        <div class="menu-btn-div" id="menu_btn_div">
-            <div class="menu-btn-div2">
-                <button class="btn">Home</button>
-                <button class="btn">About</button>
-                <button class="btn">Gallary</button>
-                <button class="btn">Contact</button>
-            </div>
-        </div>
+        
         <div class="welcome-img-div">
             <div class="welcome-div">
                 <p class="welcome">Welcome to SMARTPETS</p><br>
@@ -291,6 +293,22 @@
             window.onload = function() {
                 show_slides();
             };
+
+
+            window.onscroll = function() {myFunction()};
+            let img=document.getElementsByClassName("background-img ");
+            var header = document.getElementById("header");
+            var sticky = header.offsetTop;
+            
+            function myFunction() {
+                if (window.pageYOffset > sticky) {
+                    header.classList.add("sticky");
+                    img.style="padding-top: 128px";
+                } else {
+                    header.classList.remove("sticky");
+                }
+
+            }
     </script>
 </body>
 </html>
