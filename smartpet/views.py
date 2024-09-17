@@ -19,3 +19,7 @@ def dashboard(request):
 def sell(request):
     template=loader.get_template('Sell.html')
     return HttpResponse(template.render())
+
+def service(request):
+    template=loader.get_template('service.html')
+    return HttpResponse(template.render())

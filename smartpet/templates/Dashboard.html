@@ -13,37 +13,7 @@
     <div class="div1">
         <img src="{% static 'image/3150060.jpg' %}" class="background-img" >
     
-        <header class="header" id="header">
-            <div class="logo-div">
-            <div>
-                <img src="{% static 'image/smartpet.png' %}" alt="logo" class="logo">
-            </div>
-                <p class="name-logo">Smartpet</p>
-                
-            </div>
-            <div >
-                <div  class="header-btn" id="header_btn">
-                    <button class="btn">Home</button>
-                    <button class="btn" onclick="card_container">About</button>
-                    <button class="btn">Servives</button>
-                    <button class="btn">Contact</button>
-                    
-                </div>
-                <div class="menu-btn-div" id="menu_btn_div">
-                    <div class="menu-btn-div2">
-                        <button class="btn">Home</button>
-                        <button class="btn">About</button>
-                        <button class="btn">Gallary</button>
-                        <button class="btn">Contact</button>
-                    </div>
-                </div>
-                <button class="menu-btn" id="menu_btn" onclick="openmenu()">
-                    <img src="{% static 'image/menu.png' %}" >
-                </button>
-                
-            </div>
-            
-        </header>
+        {% include "header.html" %}
         
         <div class="welcome-img-div">
             <div class="welcome-div">
@@ -182,133 +152,111 @@
                     <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d987.0007797168262!2d77.22279889048748!3d8.30248690000002!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b04551342c39167%3A0xaaef7cb5ea28b8d2!2sSea%20Sense%20Group%20of%20Companies!5e0!3m2!1sen!2sin!4v1725950587553!5m2!1sen!2sin" width="600" height="450"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
             </div>
             <div class="div7-div3">
-                <div class="div7-footer">
-                    <div class="footer-div1">
-                        <div class="div7-footer-div1">
-                            <p class="div7-footer-p1">SmartPets</p>
-                        </div>
-                        <div class="div7-footer-div1">
-                            <p class="div7-footer-p2">Quick Link</p>
-                            <a class="div7-footer-a" href="#">Home</a>
-                            <a class="div7-footer-a" href="#">Service</a>
-                            <a class="div7-footer-a" href="#">About Us</a>
-                            <a class="div7-footer-a" href="#">Contact</a>
-                        </div>
-                        <div class="div7-footer-div1">
-                            <p class="div7-footer-p2">Opening Hours</p>
-                            <p class="div7-footer-p3">Mon Fri: 9:00 AM 8:00 PM </p>
-                            <p class="div7-footer-p3">Sat Sun: 10:00 AM - 6:00 PM</p>
-                        </div>
-                        <div class="div7-footer-div1">
-                            <p class="div7-footer-p2">Legal</p>
-                            <a class="div7-footer-a" href="#">Terms & Conditions</a>
-                            <a class="div7-footer-a" href="#">Privacy Policy</a>
-                            <a class="div7-footer-a" href="#">Return & Refund Policy</a>
-                        </div>
-                    </div>
-                </div>
+                {% include "footer.html" %}
+
             </div>
         </div>
     </div>
 
     <script>
-            const cardContainer = document.getElementById("card_container_inner");
-            const itemsPerPage = 2;
-            let currentPage = 0;
-            let cards = [];
-        
-            async function fetchCard() {
-                const response = await fetch("http://pashumart.seasense.in/api/mobile-animals/");
-                cards = await response.json();
+        let itemsPerPage = 5; 
+
+        function update_itemsPerPage() {
+            if (window.matchMedia("(max-width: 320px)").matches) {
+                itemsPerPage = 1;
+            } else if (window.matchMedia("(max-width: 562px)").matches) {
+                itemsPerPage = 2;
+            } else if (window.matchMedia("(max-width: 768px)").matches) {
+                itemsPerPage = 3;
+            } else {
+                itemsPerPage = 5;
+            }
+            console.log('Items per page:', itemsPerPage);
+        }
+        update_itemsPerPage(); 
+        window.addEventListener('resize', update_itemsPerPage); 
+        const cardContainer = document.getElementById("card_container_inner");
+        let cards = [];
+        let currentPage = 0; 
+
+        async function fetchCard() {
+            const response = await fetch("http://pashumart.seasense.in/api/mobile-animals/");
+            cards = await response.json();
+            renderCards();
+        }
+
+        function renderCards() {
+            cardContainer.innerHTML = ''; 
+            const startIndex = currentPage;
+            const endIndex = startIndex + itemsPerPage;
+            const cardsToShow = cards.slice(startIndex, endIndex);
+            
+            cardsToShow.forEach(card => {
+                const cardElement = document.createElement('div');
+                cardElement.className = 'card';
+                cardElement.innerHTML = 
+                    `<div class="card-content">
+                        <p class="card-p">${card.name}</p>
+                    </div>
+                    <div class="card-img-div">
+                        <img class="card-img" src="http://pashumart.seasense.in/${card.photo}/">
+                    </div>`;
+                cardContainer.appendChild(cardElement);
+            });
+        }
+
+        function showNextCard() {
+            if (currentPage + itemsPerPage < cards.length) {
+                currentPage++;
                 renderCards();
             }
-        
-            function renderCards() {
-                cardContainer.innerHTML = ''; 
-                const startIndex = currentPage * (itemsPerPage-1);
-                const endIndex = (startIndex+1) + (itemsPerPage+2);
-                const cardsToShow = cards.slice(startIndex, endIndex);
-                
-                cardsToShow.forEach(card => {
-                    const cardElement = document.createElement('div');
-                    cardElement.className = 'card';
-                    cardElement.innerHTML = 
-                        `<div class="card-content">
-                            <p class="card-p">${card.name}</p>
-                        </div>
-                        <div class="card-img-div">
-                            <img class="card-img" src="http://pashumart.seasense.in/${card.photo}/">
-                        </div>`;
-                    cardContainer.appendChild(cardElement);
-                });
-            }
-        
-            function showNextPage() {
-                if ((currentPage + 1) * (itemsPerPage) < cards.length) {
-                    currentPage++;
-                    renderCards();
-                }
-            }
-        
-            function showPreviousPage() {
-                if (currentPage > 0) {
-                    currentPage--;
-                    renderCards();
-                }
-            }
-        
-            document.querySelector('.next-btn').addEventListener('click', showNextPage);
-            document.querySelector('.prev-btn').addEventListener('click', showPreviousPage);
-        
-            fetchCard();
+        }
 
-            function openmenu(){
-                
-                if (document.getElementById("menu_btn_div").style.display ==="block")
-                {   
-                    document.getElementById("menu_btn_div").style.display="none";
-                }
-                else
-                {
-                    document.getElementById("menu_btn_div").style.display="block";
-                }
-                
+        function showPreviousCard() {
+            if (currentPage > 0) {
+                currentPage--;
+                renderCards();
             }
+        }
 
-            
-            let slide_index=0;
-            function show_slides()
-            {
-                let slides=document.getElementsByClassName("slide_img");
-                for( let i=0;i<slides.length;i++){
-                    slides[i].style.display="none";
-                }
-                slide_index++;
-                if(slide_index > slides.length){
-                    slide_index=1
-                }
-                slides[slide_index-1].style.display="block";
-                setTimeout(show_slides, 2000);
+        document.querySelector('.next-btn').addEventListener('click', showNextCard);
+        document.querySelector('.prev-btn').addEventListener('click', showPreviousCard);
+
+        fetchCard();
+        
+        let slide_index = 0;
+        function show_slides() {
+            let slides = document.getElementsByClassName("slide_img");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
             }
-            window.onload = function() {
-                show_slides();
-            };
-
-
-            window.onscroll = function() {myFunction()};
-            let img=document.getElementsByClassName("background-img ");
-            var header = document.getElementById("header");
-            var sticky = header.offsetTop;
-            
-            function myFunction() {
+            slide_index++;
+            if (slide_index > slides.length) {
+                slide_index = 1;
+            }
+            slides[slide_index - 1].style.display = "block";
+            setTimeout(show_slides, 2000);
+        }
+        window.onload = function() {
+            show_slides();
+        };
+        
+        window.onscroll = function() {myFunction()};
+        var img = document.querySelector(".welcome-img-div");
+        var header = document.getElementById("header");
+        var sticky = header.offsetTop;
+        
+        function myFunction() {
+            if (img) {
                 if (window.pageYOffset > sticky) {
                     header.classList.add("sticky");
-                    img.style="padding-top: 128px";
+                    img.style.paddingTop = "183px";
                 } else {
                     header.classList.remove("sticky");
+                    img.style.paddingTop = "69px";
                 }
-
             }
+        }
     </script>
 </body>
 </html>

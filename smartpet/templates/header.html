@@ -1,0 +1,49 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}">
+
+<header class="header" id="header">
+    <div class="logo-div">
+    <div>
+        <img src="{% static 'image/smartpet.png' %}" alt="logo" class="logo">
+    </div>
+        <p class="name-logo">Smartpet</p>
+        
+    </div>
+    <div >
+        <div  class="header-btn" id="header_btn">
+            <a class="btn" href="#">Home</a>
+            <a class="btn" href="#">About</a>
+            <a class="btn" href="{% url 'service' %}">Service</a>
+            <a class="btn" href="#">Contact</a>
+            
+        </div>
+        <div class="menu-btn-div" id="menu_btn_div">
+            <div class="menu-btn-div2">
+                <a class="btn" href="#">Home</a>
+                <a class="btn" href="#">About</a>
+                <a class="btn" href="#">Gallary</a>
+                <a class="btn" href="#">Contact</a>
+            </div>
+        </div>
+        <button class="menu-btn" id="menu_btn" onclick="openmenu()">
+            <img src="{% static 'image/menu.png' %}" >
+        </button>
+        
+    </div>
+    
+</header>
+<script>
+    function openmenu(){
+                
+        if (document.getElementById("menu_btn_div").style.display ==="block")
+            {   
+            document.getElementById("menu_btn_div").style.display="none";
+        }
+        else
+            {
+            document.getElementById("menu_btn_div").style.display="block";
+        }
+                
+    }
+
+</script>
