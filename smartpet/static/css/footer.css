@@ -37,7 +37,9 @@
     color: black;
 }
 
-
+.div7-footer-a:hover{
+    font-weight: 600;
+}
 @media screen and ( max-width:768px ){
     .footer-div1 {
         flex-direction: column;

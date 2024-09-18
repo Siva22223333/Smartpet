@@ -18,8 +18,8 @@
         <div class="welcome-img-div">
             <div class="welcome-div">
                 <p class="welcome">Welcome to SMARTPETS</p><br>
-                <p class="welcome-quotes">It’s impossible to have a human friend without questions</p>
-                <p class="welcome-quotes"> - but it’s not impossible with pets</p>
+                <p class="welcome-quotes">"SmartPets: Where your pet's happiness  meets </p>
+                <p class="welcome-quotes">innovation, every day."</p>
                 <div class="Explore-btn-div">
                     <button class="Explore-btn">Explore More</button>
                 </div>
@@ -132,7 +132,9 @@
                 <p class="div6-right-p2"> Because at SmartPets, we know that happy pets make happy homes.</p>
             </div>
             <div class="div6-right-div2">
-                <img src="{% static 'image/download.png' %} " class="div6-right-img1" >
+                <a href="https://play.google.com/store/apps/developer?id=MINDTEK&hl=en">
+                    <img src="{% static 'image/download.png' %} " class="div6-right-img1" >
+                </a>
             </div>
             </div>
         </div>
@@ -171,7 +173,6 @@
             } else {
                 itemsPerPage = 5;
             }
-            console.log('Items per page:', itemsPerPage);
         }
         update_itemsPerPage(); 
         window.addEventListener('resize', update_itemsPerPage); 
@@ -250,13 +251,22 @@
             if (img) {
                 if (window.pageYOffset > sticky) {
                     header.classList.add("sticky");
-                    img.style.paddingTop = "183px";
+                    if (window.matchMedia("(max-width: 320px)").matches) {
+                        img.style.paddingTop = "0px";
+                    }
+                    else
+                    {img.style.paddingTop = "183px";}
                 } else {
                     header.classList.remove("sticky");
-                    img.style.paddingTop = "69px";
+                    if (window.matchMedia("(max-width: 320px)").matches) {
+                        img.style.paddingTop = "0px";
+                    }
+                    else
+                    {img.style.paddingTop = "85px";}
                 }
             }
         }
+        
     </script>
 </body>
 </html>

@@ -46,7 +46,7 @@
     height: 75%;
     display: flex;
     justify-content: space-around;
-    padding-top: 69px;
+    
 }
 
 .welcome-div {
@@ -62,7 +62,7 @@
 }
 
 .welcome-quotes {
-    font-size: large;
+    font-size: x-large;
     animation: slideIn 1s ease-out;
     height: auto;
 }
@@ -291,6 +291,12 @@
     height: 52px;
     border: none;
     border-radius: 10px;
+    cursor: pointer;
+    font-weight: 500;
+}
+.see-more:hover{
+    color: black;
+    background-color: white;
 }
 .see-more-div {
     padding-top: 10%;
@@ -470,7 +476,7 @@ iframe{
         top: 80%;
     }
     .welcome-img-div {
-        padding-top: 49px
+        padding-top: 85px;
     }
 }
 @media screen and ( max-width:768px ) {
@@ -508,7 +514,7 @@ iframe{
         font-size: 38px;
     }
     .welcome-quotes {
-        font-size: medium;
+        font-size: larger;
     }
     .welcome-div {
         padding-left: 24px;
@@ -533,7 +539,7 @@ iframe{
         font-size: 33px;
     }
     .see-more{
-        width: 30%;
+        width: 43%;
         height: 48px;
     }
     .div4-p {
@@ -713,10 +719,10 @@ iframe{
         height: 62%;
     }
     .welcome-img-div {
-        padding-bottom: 35px;
+        position: sticky;
     }
     .Explore-btn{
-        font-size: medium;
+        font-size: smaller;
         height: 33px;
         width: 43%;
     }

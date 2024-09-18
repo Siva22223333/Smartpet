@@ -4,7 +4,7 @@
 <header class="header" id="header">
     <div class="logo-div">
     <div>
-        <img src="{% static 'image/smartpet.png' %}" alt="logo" class="logo">
+        <img src="{% static 'image/logo.png' %}" alt="logo" class="logo">
     </div>
         <p class="name-logo">Smartpet</p>
         
@@ -46,4 +46,16 @@
                 
     }
 
+    document.addEventListener('click', function(event) {
+        const popup = document.getElementById('menu_btn_div');
+        const overlay = document.getElementById('menu_btn');
+    
+        if (!popup.contains(event.target) && !overlay.contains(event.target)) {
+            if (document.getElementById("menu_btn_div").style.display ==="block")
+            {   
+            document.getElementById("menu_btn_div").style.display="none";
+        }
+        }
+    });
+    
 </script>
