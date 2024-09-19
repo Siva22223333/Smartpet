@@ -1,16 +1,87 @@
 
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/service.css' %}">
 </head>
 <body>
-    <div>
-        
+    <div class="div1">
         {% include "header.html" %}
     </div>
+    <div class="div3">
+        <div class="services-div">
+            <p class="services-p">Services</p>
+        </div>
+        <div class="service-div2">
+            <div  class="service-div2-img">
+                <img src="{% static 'image/services4.jpg' %}" class="service-div2-img2">
+            </div>
+            <div class="service-div2-p">
+                <p class="service-div2-p2">SmartPets services page with more details</p>
+                <p >At SmartPets, we are more than just a pet shop. 
+                    We are your partner in giving your pets the love and care they deserve.
+                    Visit us today and let us take care of your furry friends!</p>
+                <p>At SmartPets,we are committed to helping animals find loving homes.
+                    We partner with local shelters and rescue organizations to support pet adoption</p>
+            </div>
+            
+        </div>
+    </div>
+            
+        <div class="services-div-content">
+            <div class="services-content">
+                <img src="{% static 'image/animal.png' %}" >
+                <div class="services-content-animal">
+                    <p class="card-p">Animal</p>
+                    <p class="services-content-animal-p">All our animals love</p>
+                    <p class="services-content-animal-p"> to be petted.</p>
+                </div>
+            </div>
+            <div class="services-content">
+                <img src="{% static 'image/guide.png' %}" >
+                <div class="services-content-animal">
+                    <p class="card-p">Guide</p>
+                    <p class="services-content-animal-p">We have a large selection </p>
+                    <p class="services-content-animal-p">of pets.</p>
+                 </div>
+            </div>
+            <div class="services-content">
+                <img src="{% static 'image/pet care.png' %}" >
+                <div class="services-content-animal">
+                    <p class="card-p">Pet Care</p>
+                    <p class="services-content-animal-p">We care about the  </p>
+                    <p class="services-content-animal-p"> health of all animals.</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <footer class="div7-div3">
+                {% include "footer.html" %}
+            </footer>
+        </div>
+    
+    
+
+    <script>
+        window.onscroll = function() {myFunction()};
+        var header = document.getElementById("header");
+        var sticky = header.offsetTop;
+        
+        function myFunction() {
+                if (window.pageYOffset > sticky) {
+                    header.classList.add("sticky");
+                }
+                else {
+                    header.classList.remove("sticky");
+                }
+            
+        }
+        
+    </script>
 </body>
 </html>

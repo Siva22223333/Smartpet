@@ -72,7 +72,9 @@
     gap: 50px;
     margin-right: 40px;
 }
-
+.menu-img{
+    height: 40px;
+}
 .btn {
     display: flex;
     font-size: large;
