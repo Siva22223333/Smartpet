@@ -23,3 +23,11 @@ def sell(request):
 def service(request):
     template=loader.get_template('service.html')
     return HttpResponse(template.render())
+
+def contact(request):
+    template=loader.get_template('contact.html')
+    return HttpResponse(template.render())
+
+def aboutus(request):
+    template=loader.get_template('aboutus.html')
+    return HttpResponse(template.render())

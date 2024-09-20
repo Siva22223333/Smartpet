@@ -24,7 +24,9 @@
     80% { opacity: 1; }
     100% { opacity: 0; }
 }
-
+body {
+    background-color: #e0e6ed;
+}
 .div1 {
     height: 95%;
     width: 100%;
@@ -46,7 +48,7 @@
     height: 75%;
     display: flex;
     justify-content: space-around;
-    
+    padding-top: 85px;
 }
 
 .welcome-div {
@@ -294,10 +296,7 @@
     cursor: pointer;
     font-weight: 500;
 }
-.see-more:hover{
-    color: black;
-    background-color: white;
-}
+
 .see-more-div {
     padding-top: 10%;
     height: auto;
@@ -458,10 +457,15 @@ iframe{
     height: auto;
     font-size: x-large;
     font-weight: 500;
-    width: auto;
     padding-bottom: 31px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
-
+.contact-div-icon{
+    width: 40px;
+    height: 40px;
+}
 .div7-div3{
     display: flex;
     justify-content: center;
@@ -469,7 +473,7 @@ iframe{
 }
 
 .div7-footer{
-    position: relative;
+    position: absolute;
     height: 45%;
     width: 85%;
     background-color: white;
@@ -477,7 +481,32 @@ iframe{
     padding: 40px 0px;
     box-shadow: 0px 0px 0px 0px;
 }
+/* hover classes*/
+.see-more:hover{
+    color: black;
+    background-color: white;
+}
+.Explore-btn:hover{
+    color: white;
+    background-color: transparent;
+    border: 2px solid white;
+}
+/*  footer css */
+.div7-div3{
+    display: flex;
+    justify-content: center;
+    padding: 35px 0px;
+}
 
+.div7-footer{
+    bottom: 0;
+    position: absolute;
+    height: 250px;
+    width: 85%;
+    background-color: white;
+    padding: 40px 0px;
+    box-shadow: 0px 0px 0px 0px;
+}
 
 @media screen and ( max-width:1024px ) {
     .div2{
@@ -707,6 +736,10 @@ iframe{
     }
     .div-right-div6 {
         padding: 23px;
+    }
+    .contact-div-icon {
+        width: 27px;
+        height: 27px;
     }
 }
 @media screen and (max-width:320px){

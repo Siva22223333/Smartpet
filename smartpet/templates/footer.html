@@ -1,17 +1,20 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}">
 
-<div class="div7-footer">
+
     <div class="footer-div1">
-        <div class="div7-footer-div1">
+        <div class="div7-footer-div2">
+            <div class="footer-img"> 
+                <img src="{% static 'image/logo.png' %}" alt="logo" class="logo1">
+            </div>
             <p class="div7-footer-p1">SmartPets</p>
         </div>
         <div class="div7-footer-div1">
             <p class="div7-footer-p2">Quick Link</p>
-            <a class="div7-footer-a" href="#">Home</a>
-            <a class="div7-footer-a" href="#">Service</a>
-            <a class="div7-footer-a" href="#">About Us</a>
-            <a class="div7-footer-a" href="#">Contact</a>
+            <a class="div7-footer-a" href="{% url 'dashboard' %}">Home</a>
+            <a class="div7-footer-a" href="{% url 'service' %}">Service</a>
+            <a class="div7-footer-a" href="{% url 'aboutus' %}">About Us</a>
+            <a class="div7-footer-a" href="{% url 'contact' %}">Contact</a>
         </div>
         <div class="div7-footer-div1">
             <p class="div7-footer-p2">Opening Hours</p>
@@ -25,4 +28,21 @@
             <a class="div7-footer-a" href="#">Return & Refund Policy</a>
         </div>
     </div>
-</div>
+
+    <div class="icon-btn">
+        <a href="https://www.youtube.com/">
+            <img src="{% static 'image/youtube.png' %}" class="social-media2">
+        </a>
+        <a href="https://www.instagram.com/">
+            <img src="{% static 'image/instagram.png' %}" class="social-media">
+        </a>
+        <a href="https://www.linkedin.com/">
+            <img src="{% static 'image/linkedin.png' %}" class="social-media">
+        </a>
+        <a href="https://web.whatsapp.com/">
+            <img src="{% static 'image/whatssapp.png' %}" class="social-media">
+        </a>
+        <a href="https://x.com/">
+            <img src="{% static 'image/twitter.png' %}" class="social-media">
+        </a>
+    </div>

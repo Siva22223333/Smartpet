@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+
+</head>
+<body>
+    <div class="div1">
+        {% include "header.html" %}
+    </div>
+    <div class="div7">
+            <div class="div7-div1">
+                <p class="div7-p1">Contact</p>
+            </div>
+            <div class="div7-div2">
+                <div class="div7-div2-box">
+                    <p class="div7-p2">
+                        <img src="{% static 'image/email.png' %}" class="contact-div-icon">
+                        Smartpets@gmail.com
+                    </p>
+                    <p class="div7-p2">
+                        <img src="{% static 'image/phone.png' %}" class="contact-div-icon">
+                        +380 00 467 37 39
+                    </p>
+                </div>
+                <div class="div7-div2-map">
+                    <div>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d987.0007797168262!2d77.22279889048748!3d8.30248690000002!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b04551342c39167%3A0xaaef7cb5ea28b8d2!2sSea%20Sense%20Group%20of%20Companies!5e0!3m2!1sen!2sin!4v1725950587553!5m2!1sen!2sin" width="600" height="450"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+                    </div>
+            </div>
+            <div class="div7-div3">
+                <div class="div7-footer">
+                    {% include "footer.html" %}
+                </div>
+            </div>
+            
+    </div>
+    <script>
+        window.onscroll = function() {myFunction()};
+        var header = document.getElementById("header");
+        var sticky = header.offsetTop;
+        var map = document.querySelector(".div7-div2-map");
+        function myFunction() {
+                if (window.pageYOffset > sticky) {
+                    header.classList.add("sticky");
+                    if (window.matchMedia("(max-width: 320px)").matches) {
+                        map.style.top= "50%";
+                    }
+                    if (window.matchMedia("(max-width: 562px)").matches) {
+                        map.style.top= "50%";
+                    }
+                    if (window.matchMedia("(max-width: 768px)").matches) {
+                        map.style.top= "50%";
+                    }
+                    else  {
+                        map.style.top= "42%";
+                    }
+                }
+                else {
+                    header.classList.remove("sticky");
+                    if (window.matchMedia("(max-width: 320px)").matches) {
+                        map.style.top= "64%";
+                    }
+                    if (window.matchMedia("(max-width: 562px)").matches) {
+                        map.style.top= "64%";
+                    }
+                    if (window.matchMedia("(max-width: 768px)").matches) {
+                        map.style.top= "63%";
+                    }
+                    else {
+                        map.style.top= "55%";
+                    }
+                }
+            
+        }
+        
+    </script>
+</body>
+</html>

@@ -30,7 +30,7 @@
 
 .logo {
     height: 63px;
-    width: 75px;
+    width: 70px;
 }
 .name-logo{
     display: block;
@@ -104,6 +104,13 @@
     .name-logo{
         font-size: large;
     }
+    .logo {
+        height: 60px;
+        width: 63px;
+    }
+    .menu-img {
+        height: 35px;
+    }
 }
 
 @media screen and (max-width:320px){
@@ -115,5 +122,15 @@
     }
     .name-logo {
         display: none;
+    }
+    .header {
+        padding: 10px 0px;
+    }
+    .menu-img {
+        height: 33px;
+    }
+    .logo {
+        height: 53px;
+        width: 52px;
     }
 } 
