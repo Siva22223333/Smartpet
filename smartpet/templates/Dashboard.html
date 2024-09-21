@@ -21,7 +21,9 @@
                 <p class="welcome-quotes">"SmartPets: Where your pet's happiness  meets </p>
                 <p class="welcome-quotes">innovation, every day."</p>
                 <div class="Explore-btn-div">
-                    <button class="Explore-btn">Explore More</button>
+                    <a href="{% url 'explore' %}">
+                        <button class="Explore-btn">Explore More</button>
+                    </a>
                 </div>
             </div><div class="background-shadow"></div>
             <img class="dog-img" src="{% static 'image/pet.png' %}" >
@@ -188,7 +190,7 @@
         let currentPage = 0; 
 
         async function fetchCard() {
-            const response = await fetch("http://pashumart.seasense.in/api/mobile-animals/");
+            const response = await fetch("https://smartpets.seataxi.in/");
             cards = await response.json();
             renderCards();
         }

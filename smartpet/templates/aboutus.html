@@ -9,14 +9,63 @@
     <link rel="stylesheet" href="{% static 'css/aboutus.css' %}">
 </head>
 <body>
-    <div class="div1"></div>
+    <!-- header div -->
+    <div class="div1">
         {% include "header.html" %}
     </div>
+    <!-- header div end -->
+    <div class="heading">
+        <p class="div2-p1">
+            About Us
+        </p>
+    </div>
+    <div class="div2">
+        <div class="aboutus-div1">
+            
+            <p class="div2-p2">
+                Passionate About Pets, Committed to Quality
+            </p>
+            <p class="div2-p3">
+                • At SmartPets, we're more than just a pet shop we're a community of pet lovers dedicated to providing the best for our furry, feathered, and scaly friends.
+            </p>
+            <p class="div2-p3">
+                • Our journey began with a simple belief: pets are family, and they deserve nothing but the best.
+            </p>
+
+        </div>
+        <div class="aboutus-div2">
+            <img class="aboutus-img" src="{% static 'image/pet7.jpg' %}" >
+        </div>
+    </div>
+    <div class="div3">
+        <div class="aboutus-div1">
+            <p class="div2-p2">
+                SmartPets: Where Passion Meets Quality
+            </p>
+            <p  class="div2-p3">
+                At SmartPets, we believe that pets are more than just animals; they are cherished members of our families. Our journey started with a simple yet profound belief: every pet deserves the highest quality care, love, and products that cater to their unique needs. With this passion at our core, we've created a vibrant community of pet lovers dedicated to enhancing the lives of our furry, feathered, and scaly companions.
+            </p>
+
+            <p class="div2-p2">
+                Join Our Community
+            </p>
+            <p class="div2-p3">
+                At SmartPets, we invite you to join our community of passionate pet lovers. Whether you're visiting our shop or connecting with us online, we encourage you to share your pet stories, tips, and photos. Together, we can celebrate the joy that pets bring to our lives.
+            </p>
+        </div>
+        <div class="aboutus-div2">
+            <img class="aboutus-img2" src="{% static 'image/about1.jpg' %}" >
+        </div>
+        
+    </div>
+
+    <!-- footer div -->
     <div class="div7-div3">
         <div class="div7-footer">
             {% include "footer.html" %}
         </div>
     </div>
+     <!-- footer div end -->
     <script>
         window.onscroll = function() {myFunction()};
         var header = document.getElementById("header");

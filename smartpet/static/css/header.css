@@ -22,7 +22,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     padding: 10px;
     z-index: 1000;
-    width: 31%;
+    width: 40%;
     align-items: center;
     height: 200px;
     justify-content: space-evenly;
@@ -78,7 +78,7 @@
 .btn {
     display: flex;
     font-size: large;
-    width: 65px;
+    width: 96px;
     cursor: pointer;
     text-decoration: none;
     color: black;

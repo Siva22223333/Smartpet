@@ -31,3 +31,7 @@ def contact(request):
 def aboutus(request):
     template=loader.get_template('aboutus.html')
     return HttpResponse(template.render())
+
+def explore(request):
+    template=loader.get_template('explore.html')
+    return HttpResponse(template.render())

@@ -14,10 +14,11 @@
         {% include "header.html" %}
     </div>
     <div class="div7">
-            <div class="div7-div1">
-                <p class="div7-p1">Contact</p>
-            </div>
-            <div class="div7-div2">
+        <div class="div7-div1">
+            <p class="div7-p1">Contact</p>
+        </div>
+        <div class="div7-div2">
+            <div class="div7-content">
                 <div class="div7-div2-box">
                     <p class="div7-p2">
                         <img src="{% static 'image/email.png' %}" class="contact-div-icon">
@@ -29,10 +30,37 @@
                     </p>
                 </div>
                 <div class="div7-div2-map">
-                    <div>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d987.0007797168262!2d77.22279889048748!3d8.30248690000002!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b04551342c39167%3A0xaaef7cb5ea28b8d2!2sSea%20Sense%20Group%20of%20Companies!5e0!3m2!1sen!2sin!4v1725950587553!5m2!1sen!2sin" width="600" height="450"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
-                    </div>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d987.0007797168262!2d77.22279889048748!3d8.30248690000002!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b04551342c39167%3A0xaaef7cb5ea28b8d2!2sSea%20Sense%20Group%20of%20Companies!5e0!3m2!1sen!2sin!4v1725950587553!5m2!1sen!2sin" width="600" height="450"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
             </div>
+            <div class="div7-form">
+                
+                <div class="div7-div2-box2">
+                    <p class="box2-heading">Get in Touch</p>
+                    <form action="">
+                        <label>
+                            Name
+                        </label><br>
+                        <input type="text" class="input-text" placeholder="Enter Your Name"><br>
+                        <label>
+                            Surname
+                        </label><br>
+                        <input type="text" class="input-text" placeholder="Enter Your Surname"><br>
+                        <label>
+                            E-mail
+                        </label><br>
+                        <input type="email" class="input-text" placeholder="Enter Your E-mail"><br>
+                        <label>
+                            Message
+                        </label><br>
+                        <textarea placeholder="Enter Your Message"></textarea><br>
+                        <input type="submit" class="input-submit">
+                    </form>
+                </div>
+            </div>
+        </div> 
+                  
+    </div>
             <div class="div7-div3">
                 <div class="div7-footer">
                     {% include "footer.html" %}
