@@ -80,7 +80,7 @@ body{
     width: 485px;
 }
 .service-div2-p{
-    font-size: x-large;
+    font-size: larger;
     display: flex;
     flex-basis: 50%;
     padding: 15px 40px 40px 40px;
@@ -91,11 +91,16 @@ body{
 .service-div2-p2{
     color: royalblue;
     font-weight: 500;
+    font-size: x-large;
 }
 
 .services-content-animal-p{
     font-size: larger;
     font-weight: 500;
+}
+.header{
+    background-color: white;
+
 }
 /*  footer css */
 .div7-footer{
@@ -192,7 +197,7 @@ body{
         font-size: medium;
     }
     .service-div2-img2 {
-        height: 151px;
+        height: 186px;
     }
     .menu-img{
         height: 50px;
@@ -211,5 +216,8 @@ body{
     }
     .services-content img {
         max-width: 70px;
+    }
+    .service-div2-p2{
+        font-size: large;
     }
 }

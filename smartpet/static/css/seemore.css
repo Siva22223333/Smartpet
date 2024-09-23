@@ -1,0 +1,103 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+}
+body {
+    background-color: #e0e6ed;
+}
+.div2{
+    display: flex;
+    flex-direction: column;
+    padding: 0px 40px;
+}
+.category-p{
+    font-size: xx-large;
+    font-weight: 600;
+    padding-left: 20px;
+}
+.category-p-div{
+    padding: 40px 0px;
+}
+.card-div{
+    display: flex;
+    flex-direction: row;
+    padding: 0px 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.card{
+    display: flex;
+    height: 249px;
+    width: 175px;
+    border-radius: 20px;
+    background-color: white;
+    margin:20px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column-reverse;
+}
+.card-img {
+    height: 125px;
+}
+.card-p{
+    font-size: x-large;
+    font-weight: 600;
+    padding-bottom: 20px;
+}
+.header{
+    background-color: white;
+
+}
+/*  footer css */
+.div7-div3{
+    display: flex;
+    justify-content: center;
+    padding: 35px 0px;
+}
+
+.div7-footer{
+    bottom: 0;
+    position: relative;
+    height: 250px;
+    width: 85%;
+    background-color: white;
+    padding: 40px 0px;
+    box-shadow: 0px 0px 0px 0px;
+}
+@media screen and (max-width:768px) {
+    .card-div {
+        padding: 0px 28px;
+        gap: 30px;
+    }
+    .div2{
+        padding: 0px ;
+    }
+    .card {
+        height: 249px;
+        width: 175px;
+        margin: 0px;
+    }
+}
+@media screen and (max-width:562px) {
+    .card {
+        height: 249px;
+        width: 175px;
+        margin: 0px;
+    }
+    .card-div {
+        padding: 5px ;
+        gap:15px;
+    }
+    .div2{
+        padding: 0px ;
+    }
+}
+@media screen and (max-width:320px) {
+    .card-div {
+        padding: 0px 20px;
+    }
+    .div2{
+        padding: 0px 10px;
+    }
+}

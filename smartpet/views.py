@@ -35,3 +35,7 @@ def aboutus(request):
 def explore(request):
     template=loader.get_template('explore.html')
     return HttpResponse(template.render())
+
+def seemore(request):
+    template=loader.get_template('seemore.html')
+    return HttpResponse(template.render())

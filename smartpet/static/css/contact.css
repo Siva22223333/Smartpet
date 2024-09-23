@@ -113,6 +113,10 @@ label{
     background-color: white;
     color:black;
 }
+.header{
+    background-color: white;
+
+}
 /*  footer css */
 .div7-div3{
     display: flex;

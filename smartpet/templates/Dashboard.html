@@ -31,17 +31,13 @@
     </div>
     <div class="div2" id="card_container">
         <div class="prev-btn-div">
-            <button class="prev-btn">
-                <img class="card-btn-logo-prev" src="{% static 'image/prev.png' %}" >
-            </button>
+            <img class=" prev-btn" src="{% static 'image/prev.png' %}" >
         </div>
         <div class="card-container" id="card_container_inner">
            
         </div>
         <div class="next-btn-div">
-            <button class="next-btn" >
-                <img class="card-btn-logo-next" src="{% static 'image/next.png' %}" >
-            </button>
+            <img class=" next-btn " src="{% static 'image/next.png' %}" >
         </div>
     </div>
     <div class="div3">
@@ -90,9 +86,11 @@
                      Shop smarter, save more, and keep your pet happy and healthy!
                 </p>
                 <div class="see-more-div">
-                    <button class="see-more">
-                        See More
-                    </button>
+                    <a href="{% url 'seemore' %}">
+                        <button class="see-more">
+                            See More
+                        </button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -190,7 +188,7 @@
         let currentPage = 0; 
 
         async function fetchCard() {
-            const response = await fetch("https://smartpets.seataxi.in/");
+            const response = await fetch("https://smartpets.seataxi.in/api/mobile-animals/");
             cards = await response.json();
             renderCards();
         }
