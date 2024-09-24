@@ -87,6 +87,7 @@ body{
     height: auto;
     flex-direction: column;
     gap: 20px;
+    text-align: justify;
 }
 .service-div2-p2{
     color: royalblue;

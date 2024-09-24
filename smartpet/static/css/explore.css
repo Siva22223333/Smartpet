@@ -11,25 +11,26 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 30px 65px;
+    padding: 30px 65px 141px 65px;
     gap: 25px;
+    background-image: linear-gradient(to right, #5dacc4, #47c579, #30c954);
 }
 .div1-heading{
     padding-bottom: 30px;
     font-size: xx-large;
-    font-weight: 500;
-    color: royalblue;
+    font-weight: 700;
 }
 .div1-heading2{
     font-size: xx-large;
-    font-weight: 500;
-    color: royalblue;
+    font-weight: 700;
 }
 .div1-p1{
     font-size: larger;
+    text-align: justify;
 }
 .div1-p2{
     font-size: larger;
+    text-align: justify;
 }
 .explore-img{
     height: 400px;
@@ -44,7 +45,6 @@ body {
 .div1-content{
     display: flex;
     flex-direction: row;
-    background-color: white;
     padding: 30px;
     border-radius: 20px;
     gap: 24px;
@@ -52,7 +52,6 @@ body {
 .div1-content2{
     display: flex;
     flex-direction: row-reverse;
-    background-color: white;
     padding: 30px;
     border-radius: 20px;
     gap: 24px;

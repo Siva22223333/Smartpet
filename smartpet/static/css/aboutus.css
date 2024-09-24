@@ -15,16 +15,14 @@ body {
 }
 .div2{
     margin-top: 70px;
-    background-color: white;
     display: flex;
-    padding: 50px;
+    padding: 50px 120px;
     height: auto;
 }
 .div3{
     margin-top: 10px;
-    background-color: white;
     display: flex;
-    padding: 50px;
+    padding: 50px 120px;
     height: auto;
     flex-direction: row-reverse;
 }
@@ -35,7 +33,7 @@ body {
 }
 .div2-p1{
     font-size: xx-large;
-    font-weight: 500;
+    font-weight: 700;
     padding-bottom: 30px;
 }
 .div2-p2{
@@ -47,11 +45,16 @@ body {
 .div2-p3{
     font-size: larger;
     padding-bottom: 20px;
+    text-align: justify;
 }
 .aboutus-div2{
     display: flex;
     flex-basis: 50%;
-    justify-content: center;
+}
+.aboutus-div3{
+    display: flex;
+    flex-basis: 50%;
+    justify-content: flex-end;
 }
 .aboutus-img{
     border-radius: 20px;
@@ -79,10 +82,7 @@ body {
     padding: 40px 0px;
     box-shadow: 0px 0px 0px 0px;
 }
-.header{
-    background-color: white;
 
-}
 @media screen and (max-width:768px) {
     .div2{
         flex-direction: column-reverse;
@@ -112,8 +112,12 @@ body {
     .div2-p1 {
         font-size: x-large;
         padding-bottom: 0px;
+        font-weight: 600;
     }
     .aboutus-div2 {
+        justify-content: flex-start;
+    }
+    .aboutus-div3 {
         justify-content: flex-start;
     }
 }
@@ -146,6 +150,7 @@ body {
     .div2-p1 {
         font-size: x-large;
         padding-bottom: 0px;
+        font-weight: 500;
     }
 }
 @media screen and (max-width:320px) {
@@ -177,6 +182,7 @@ body {
     .div2-p1 {
         font-size: x-large;
         padding-bottom: 0px;
+        font-weight: 500;
     }
 
 }

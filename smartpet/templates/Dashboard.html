@@ -10,14 +10,15 @@
     <meta name="viewport"content="width=device-width,initial-scale=1.0">
 </head>
 <body>
+    {% include "header.html" %}
     <div class="div1">
-        <img src="{% static 'image/3150060.jpg' %}" class="background-img" >
-    
-        {% include "header.html" %}
+        
         
         <div class="welcome-img-div">
             <div class="welcome-div">
-                <p class="welcome">Welcome to SMARTPETS</p><br>
+                <div class="welcome-div2">
+                    <p class="welcome">Welcome to <span  style="color: #2789ae;"> SMARTPETS </span></p>
+                </div>
                 <p class="welcome-quotes">"SmartPets: Where your pet's happiness  meets </p>
                 <p class="welcome-quotes">innovation, every day."</p>
                 <div class="Explore-btn-div">
@@ -25,20 +26,21 @@
                         <button class="Explore-btn">Explore More</button>
                     </a>
                 </div>
-            </div><div class="background-shadow"></div>
-            <img class="dog-img" src="{% static 'image/pet.png' %}" >
+            </div>
+            <div  class="dog-img-div">
+                <p class="background-shadow"></p>
+                <img class="dog-img" src="{% static 'image/pet.png' %}" >
+            </div>
         </div> 
     </div>
     <div class="div2" id="card_container">
-        <div class="prev-btn-div">
-            <img class=" prev-btn" src="{% static 'image/prev.png' %}" >
-        </div>
+        
+        <img class=" prev-btn prev-btn-div" src="{% static 'image/prev.png' %}" >
+        
         <div class="card-container" id="card_container_inner">
            
         </div>
-        <div class="next-btn-div">
-            <img class=" next-btn " src="{% static 'image/next.png' %}" >
-        </div>
+            <img class=" next-btn next-btn-div" src="{% static 'image/next.png' %}" >
     </div>
     <div class="div3">
         <div class="services-div">
@@ -80,6 +82,7 @@
                 <img class="div4-img" src="{% static 'image/pet3.png' %}" >
             </div>
             <div class="div4-right-div">
+                <p class="div4-p3">SmartPets</p>
                 <p class="div4-p">The smarter way to shop your pet</p>
                 <p class="div4-p2">Streamline your shopping experience with expert recommendations and easy-to-navigate categories,
                      ensuring your furry friend gets the best care without the hassle.
@@ -117,7 +120,7 @@
     </div>
     <div class="div6">
         <div class="div6-div1">
-            <p class="div6-p">Join the SmartPets Family Today!</p>
+            <p class="div6-p">Join the <span style="color: #2789ae;"> SmartPets </span> Family Today!</p>
         </div>
         <div class="div6-div2">
             <div class="div-left-div6">
@@ -128,7 +131,7 @@
             </div>
             <div class="div-right-div6">
             <div class="div6-right-div1">
-                <p class="div6-right-p1">Download SMARTPETS App Today!</p>
+                <p class="div6-right-p1">Download <span style="color: #2789ae;">SMARTPETS</span> App Today!</p>
                 <p class="div6-right-p2"> Because at SmartPets, we know that happy pets make happy homes.</p>
             </div>
             <div class="div6-right-div2">
@@ -141,7 +144,6 @@
     </div>  
     <div class="div7">
         <div class="div7-bg">
-            <img src="{% static 'image/3150060.jpg' %}" class="background-img" >
             <div class="div7-div1">
                 <p class="div7-p1">Contact</p>
             </div>
@@ -251,32 +253,46 @@
         
         window.onscroll = function() {myFunction()};
         var img = document.querySelector(".welcome-img-div");
+        var div2=document.querySelector(".div2")
         var header = document.getElementById("header");
         var sticky = header.offsetTop;
-        
+        var mobile_view=window.matchMedia("(max-width: 320px)").matches;
+        var large_mobile=window.matchMedia("(max-width: 563px)").matches;
+        var tablet_view=window.matchMedia("(max-width: 768px)").matches;
         function myFunction() {
             if (img) {
-                if (window.pageYOffset > sticky) {
-                    header.classList.add("sticky");
-                    if (window.matchMedia("(max-width: 320px)").matches) {
-                        img.style.paddingTop = "0px";
-                    }
-                    else
-                    {
-                        img.style.paddingTop = "183px";
-                    }
-                } 
-                else {
-                    header.classList.remove("sticky");
-                    if (window.matchMedia("(max-width: 320px)").matches) {
-                        img.style.paddingTop = "0px";
-                    }
-                    else
-                    {
-                        img.style.paddingTop = "85px";
-                    }
-                }
+        if (window.pageYOffset > sticky) {
+            header.classList.add("sticky");
+
+            if (mobile_view) {
+                img.style.paddingTop = "0px";
+                div2.style.top = "35%";
+            } else if (large_mobile) {
+                img.style.paddingTop = "0px";
+                div2.style.top = "43%";
+            }else if (tablet_view) {
+                img.style.paddingTop = "0px";
+                div2.style.top = "58%";}
+            else {
+                img.style.paddingTop = "183px";
             }
+        } else {
+            header.classList.remove("sticky");
+
+            if (mobile_view) {
+                img.style.paddingTop = "0px";
+                div2.style.top = "46%";
+            } else if (large_mobile) {
+                img.style.paddingTop = "0px";
+                div2.style.top = "56%";
+            }else if (tablet_view) {
+                img.style.paddingTop = "0px";
+                div2.style.top = "72%";} 
+            else {
+                img.style.paddingTop = "85px";
+            }
+        }
+    }
         }
         
     </script>
