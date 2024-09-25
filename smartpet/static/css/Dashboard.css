@@ -50,7 +50,7 @@ body {
 }
 .welcome-div2{
     height: auto;
-    padding: 20px 0px;
+    padding: 38px 0px;
     animation: slideIn 1s ease-out;
 }
 .welcome {
@@ -368,16 +368,17 @@ body {
     display: flex;
     height: 80%;
     flex-direction: column;
-    padding-top: 10%;
+    padding: 7% 0%;
     background: linear-gradient(to top, #a6d7bb, #c2d7ca, #cfd1d0, transparent);
 }
 .div-right-div6{
     display: flex;
     flex-basis: 50%;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     overflow: hidden;
     height: auto;
+    gap: 60px;
 }
 .div6-right-div1{
     height: auto;
@@ -402,6 +403,7 @@ body {
     font-size: xxx-large;
     font-weight: 700;
     display: inline;
+    color: #000000ba;
 }
 .div6-p2{
     height: auto;
@@ -508,12 +510,14 @@ iframe{
 /* hover classes*/
 .see-more:hover{
     color: black;
-    background-color: white;
+    background-color: transparent;
+    border:2px solid black;
+    font-weight: 600;
 }
 .Explore-btn:hover{
-    color: white;
-    background-color: transparent;
-    border: 2px solid white;
+    background: none;
+    border: 2px solid black;
+    box-shadow: 0px 0px 0px 0px #39b3fd;
 }
 /*  footer css */
 .div7-div3{
@@ -621,6 +625,9 @@ iframe{
     }
     .div4-p3 {
         padding-top: 100px;
+    }
+    .div6-p{
+        font-size: xx-large;
     }
 }
 @media screen and (max-width: 562px){
@@ -909,6 +916,7 @@ iframe{
     }
     .div-right-div6 {
         padding: 23px;
+        gap: 30px;
     }
     .prev-btn, .next-btn {
         height: 51px;

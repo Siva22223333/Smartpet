@@ -16,9 +16,13 @@
             <a class="btn" href="{% url 'service' %}">Services</a>
             <a class="btn" href="{% url 'contact' %}">Contact</a>
             <a href="https://play.google.com/store/apps/developer?id=MINDTEK&hl=en">
-                <img src="{% static 'image/download.png' %} " class="play-store-img" >
+                <img src="{% static 'image/download2.png' %} " class="play-store-img2" >
             </a>
         </div>
+        
+        <button class="menu-btn" id="menu_btn" onclick="openmenu()">
+            <img src="{% static 'image/menu.png' %}" class="menu-img" >
+        </button>
         <div class="menu-btn-div" id="menu_btn_div">
             <div class="menu-btn-div2">
                 <a class="btn" href="{% url 'dashboard' %}">Home</a>
@@ -27,37 +31,54 @@
                 <a class="btn" href="{% url 'contact' %}">Contact</a>
             </div>
         </div>
-        <button class="menu-btn" id="menu_btn" onclick="openmenu()">
-            <img src="{% static 'image/menu.png' %}" class="menu-img" >
-        </button>
-        
     </div>
     
 </header>
 <script>
-    function openmenu(){
-                
-        if (document.getElementById("menu_btn_div").style.display ==="block")
-            {   
-            document.getElementById("menu_btn_div").style.display="none";
-        }
-        else
-            {
-            document.getElementById("menu_btn_div").style.display="block";
-        }
-                
+    function openmenu() {
+        const menuDiv = document.getElementById("menu_btn_div");
+        menuDiv.style.display = menuDiv.style.display === "block" ? "none" : "block";
+            if(menuDiv.style.display === "block"){
+                document.body.style.overflow = "hidden";
+            }
+            else{
+                document.body.style.overflow = "scroll";
+            }
     }
 
     document.addEventListener('click', function(event) {
         const popup = document.getElementById('menu_btn_div');
         const overlay = document.getElementById('menu_btn');
-    
+
         if (!popup.contains(event.target) && !overlay.contains(event.target)) {
-            if (document.getElementById("menu_btn_div").style.display ==="block")
-            {   
-            document.getElementById("menu_btn_div").style.display="none";
-        }
+            if (popup.style.display === "block") {
+                popup.style.display = "none";
+                document.body.style.overflow = "scroll";
+            }
         }
     });
     
+    document.addEventListener("DOMContentLoaded", function() {
+        const currentUrl = window.location.pathname;
+        const btns = document.querySelectorAll('.btn');
+
+        btns.forEach(btn => {
+            const linkUrl = btn.getAttribute('href');
+            if (linkUrl === currentUrl) {
+                btn.classList.add("active");
+            }
+        });
+    });
+
+    var header = document.getElementById('header_btn');
+    let btns = document.querySelectorAll('.btn'); 
+
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function() {
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+        });
+    }
+
 </script>

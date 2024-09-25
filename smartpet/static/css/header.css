@@ -1,3 +1,34 @@
+
+@media screen and (max-width: 768px) {
+    @keyframes menu-btn{
+        from{
+            top:0px;
+        }
+        to{
+            top:97px;
+        }
+    }
+}
+@media screen and (max-width: 562px) {
+    @keyframes menu-btn{
+        from{
+            top:0px;
+        }
+        to{
+            top:94px;
+        }
+    }
+}
+@media screen and (max-width:320px){
+    @keyframes menu-btn{
+        from{
+        top:0px;
+        }
+        to{
+        top:77px;
+        }
+    }
+}
 .menu-btn {
     height: 40px;
     width: 45px;
@@ -16,16 +47,18 @@
     flex-direction: column;
     position: absolute;
     top: 74px;
-    right: 43px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    padding: 10px;
+    right: 0px;
     z-index: 1000;
-    width: 40%;
+    width: 100%;
     align-items: center;
     height: 200px;
     justify-content: space-evenly;
+    animation: menu-btn 0.8s;
+    animation-fill-mode: forwards;
+    background-image: linear-gradient(to right, #5dacc4, #47c579, #30c954);
+    border-radius: 0px 0px 0px 0px;
+    border-bottom: 1px solid rgb(34, 34, 34);
+    border-top: 1px solid rgb(34, 34, 34);
 }
 
 .logo {
@@ -67,11 +100,15 @@
     border-bottom: 1px solid #00000029;
     box-shadow: 0px 0px 5px 0px;
   }
-  .play-store-img {
+.play-store-img {
     width: 131px;
     height: 48px;
 } 
-  
+.play-store-img2{
+    width: 166px;
+    height: 55px;
+    border-radius: 7px;
+  }
 .header-btn {
     display: flex;
     flex-direction: row;
@@ -94,9 +131,11 @@
     justify-content: center;
     font-weight: 500;
 }
-.btn:active , .btn:hover{
+.active ,.btn:hover{
     font-weight: 700;
+    border-bottom: 2px solid;
 }
+
 @media screen and ( max-width:768px ) {
 
     .menu-btn{
@@ -127,7 +166,7 @@
 
     .menu-btn-div2{
         top: 75px;
-        right: 43px;
+        right: 0px;
     
     }
     .name-logo {
