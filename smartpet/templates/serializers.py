@@ -1,7 +1,8 @@
-from rest_framework  import serializers
+from rest_framework import serializers
 from .models import contactUs
+from django.db.models import fields
 
 class contactUsSerializers(serializers.ModelSerializer):
-    class class Meta:
-        model=contactUs
-        fields=['Name','Surname','Email','Message']
+    class Meta:
+        model = contactUs
+        fields = '__all__'  

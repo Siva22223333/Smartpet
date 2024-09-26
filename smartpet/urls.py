@@ -12,5 +12,5 @@ urlpatterns = [
     path('aboutus', views.aboutus, name='aboutus'),
     path('explore', views.explore, name='explore'),
     path('seemore', views.seemore, name='seemore'),
-    path('contactUS_POST/', views.contactUS_POST, name='contactUS_POST'),
+    path('api/addcontactus/', views.contactUS_POST, name='addcontactus'),
 ]

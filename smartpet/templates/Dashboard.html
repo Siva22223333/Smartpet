@@ -186,37 +186,49 @@
         update_itemsPerPage(); 
         window.addEventListener('resize', update_itemsPerPage); 
         const cardContainer = document.getElementById("card_container_inner");
-        let cards = [];
         let currentPage = 0; 
 
-        async function fetchCard() {
-            const response = await fetch("https://smartpets.seataxi.in/api/mobile-animals/");
-            cards = await response.json();
+        function fetchCard() {
+            cards ={"title":['Cat','Cow','Bird',"Fish","Hen",'Dog',"Sheep","Rabbit"],
+                    "img":[
+                        '{% static "categories-images/cat.png" %}',
+                        '{% static "categories-images/cow.png" %}',
+                        '{% static "categories-images/bird.png" %}',
+                        '{% static "categories-images/fish.png" %}',
+                        '{% static "categories-images/hen.png" %}',
+                        '{% static "categories-images/dog.png" %}',
+                        '{% static "categories-images/sheep.png" %}',
+                        '{% static "categories-images/rabbit.png" %}',
+                    ]};
             renderCards();
         }
 
         function renderCards() {
             cardContainer.innerHTML = ''; 
-            const startIndex = currentPage;
+            const startIndex = currentPage; 
             const endIndex = startIndex + itemsPerPage;
-            const cardsToShow = cards.slice(startIndex, endIndex);
-            
-            cardsToShow.forEach(card => {
-                const cardElement = document.createElement('div');
-                cardElement.className = 'card';
-                cardElement.innerHTML = 
-                    `<div class="card-content">
-                        <p class="card-p">${card.name}</p>
-                    </div>
-                    <div class="card-img-div">
-                        <img class="card-img" src="http://pashumart.seasense.in/${card.photo}/">
-                    </div>`;
-                cardContainer.appendChild(cardElement);
-            });
+            const cardsToShow = cards.title.slice(startIndex, endIndex); 
+            for (let i = 0; i < cardsToShow.length; i++) {
+                let img = document.createElement("img");
+                let div = document.createElement("div");
+                let p = document.createElement("p");
+        
+                p.textContent = cardsToShow[i]; 
+                p.className = "card-p";
+                div.className = "card";
+
+                img.src = cards.img[startIndex + i]; 
+                img.className = "card-img";
+        
+                div.appendChild(img);
+                div.appendChild(p);
+                cardContainer.appendChild(div);
+            }
         }
 
+
         function showNextCard() {
-            if (currentPage + itemsPerPage < cards.length) {
+            if (currentPage + itemsPerPage < cards.img.length) {
                 currentPage++;
                 renderCards();
             }

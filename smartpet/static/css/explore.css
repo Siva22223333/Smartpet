@@ -81,6 +81,16 @@ body {
     background-color: white;
 
 }
+.back-btn{
+    width: 79px;
+    height: 39px;
+    background: none;
+    border: none;
+}
+.back-btn-img{
+    height: 45px;
+    width: 45px;
+}
 @media screen and (max-width:768px) {
     .div1-content {
         flex-direction: column;

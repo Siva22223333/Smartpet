@@ -126,14 +126,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
-DATABASES = {  
-    'default': {  
-        'ENGINE': 'django.db.backends.mysql',  # Use MySQL backend
-        'NAME': 'Smartpetdb',  
-        'USER':'root',  
-        'PASSWORD':'',  
-        'HOST':'localhost',  
-        'PORT':'3306',
+# DATABASES = {  
+#     'default': {  
+#         'ENGINE': 'django.db.backends.mysql',  
+#         'NAME': 'Smartpetdb',  
+#         'USER':'root',  
+#         'PASSWORD':'',  
+#         'HOST':'localhost',  
+#         'PORT':'3306',
         
-    }  
-}
+#     }  
+# }

@@ -18,6 +18,7 @@ body {
 }
 .category-p-div{
     padding: 40px 0px;
+    display: flex;
 }
 .card-div{
     display: flex;
@@ -48,6 +49,16 @@ body {
 .header{
     background-color: white;
 
+}
+.back-btn{
+    width: 79px;
+    height: 39px;
+    background: none;
+    border: none;
+}
+.back-btn-img{
+    height: 45px;
+    width: 45px;
 }
 /*  footer css */
 .div7-div3{
