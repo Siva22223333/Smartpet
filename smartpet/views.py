@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
+from .models import contactUs
+from rest_framework.decorators import api_view
 
 # Create your views here.
 
@@ -39,3 +41,9 @@ def explore(request):
 def seemore(request):
     template=loader.get_template('seemore.html')
     return HttpResponse(template.render())
+
+
+@api_view(['POST'])
+def contactUS_POST(request):
+    if request.method == 'POST':
+        serializer = contactUsSerializers(data=request.data)
