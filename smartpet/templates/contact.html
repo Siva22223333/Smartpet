@@ -37,28 +37,43 @@
                 
                 <div class="div7-div2-box2">
                     <p class="box2-heading">Get in Touch</p>
-                    <form action="">
+                    <form id="form_data" action="" method="post">
+                        {% csrf_token %}
                         <label>
                             Name
                         </label><br>
-                        <input type="text" class="input-text" name="name" placeholder="Enter Your Name" required><br>
+                        <input type="text" class="input-text" name="name" id="name" placeholder="Enter Your Name" ><br>
+                        <span id="name_error" class="error-message"></span>
                         <label>
                             Surname
                         </label><br>
-                        <input type="text" class="input-text" name="surname"  placeholder="Enter Your Surname" required><br>
+                        <input type="text" class="input-text" name="surname" id="surname" placeholder="Enter Your Surname" required><br>
                         <label>
                             E-mail
                         </label><br>
-                        <input type="email" class="input-text" name="email"  placeholder="Enter Your E-mail" required><br>
+                        <input type="email" class="input-text" name="email" id="email" placeholder="Enter Your E-mail" required><br>
                         <label>
                             Message
                         </label><br>
-                        <textarea name="message"  placeholder="Enter Your Message" required></textarea><br>
-                        <input type="submit" class="input-submit">
+                        <textarea name="message" id="message" placeholder="Enter Your Message" required></textarea><br>
+                        <input type="submit" id="submit_btn" class="input-submit">
                     </form>
                 </div>
             </div>
         </div> 
+        
+            <div class="success_message" id="success_message">
+                <div class="success_message-div1">
+                    <img src="{% static 'image/close.png' %}" onclick=closemenu() class="success_message-img">
+                </div>
+                <div class="success_message-div2">
+                    <img src="{% static 'image/Animation.gif' %}" class="tick-gif">
+                    <p class="success_message-p">
+                        Added successfully
+                    </p>
+                </div>
+            </div>
+        
                   
     </div>
             <div class="div7-div3">
@@ -69,8 +84,76 @@
             
     </div>
     <script>
+     function input_field_validation() {
+        const name=document.getElementById(name);
+        const surname=document.getElementById(surname);
+        const email=document.getElementById(email);
+        const message=document.getElementById(message);
+        const name_error=document.getElementById(name_error);
+        
+        name_error.textContent="";
+        let isValid=true;
+        if(name ===""){
+            name_error.textContent="name error";
+            isValid=false;
+        }
+     }
+     
+
+    function closemenu() {
+        const success_message = document.getElementById("success_message");
+        success_message.style.visibility="hidden";
+        document.body.style.overflow = "scroll";
+        
+    }
+    setInterval(function(){
+        const success_message = document.getElementById("success_message");
+        success_message.style.visibility="hidden";
+    },5000);
+
+    document.getElementById("form_data").addEventListener("submit", function(event){
+        event.preventDefault(); // Prevent default form submission
+
+        const name = document.getElementById("name").value;
+        const surname = document.getElementById("surname").value;
+        const email = document.getElementById("email").value;
+        const message = document.getElementById("message").value;
+
+        const data = {
+            Name: name,
+            Surname: surname,
+            Email: email,
+            Message: message
+        };
+        const csrfToken = getCookie('csrftoken'); // Adjust the cookie name if needed
+
+        fetch("http://127.0.0.1:8000/api/addcontactus/", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrfToken // Include CSRF token in headers
+
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        document.getElementById("success_message").style.visibility = "visible"; 
+        document.getElementById("form_data").reset();
+    })
+    .catch(function(error) {
+        alert(`Error: ${error.message}`); // Alert on error
+    });
+});
+
+
         window.onscroll = function() {myFunction()};
-        var header = document.getElementById("header");
+        var header  = document.getElementById("header");
         var sticky = header.offsetTop;
         var map = document.querySelector(".div7-div2-map");
         function myFunction() {
@@ -106,6 +189,22 @@
                 }
             
         }
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== "") {
+            var cookies = document.cookie.split(";");
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                // Check if the cookie name matches the CSRF token cookie name
+                if (cookie.substring(0, name.length + 1) === name + "=") {
+                // Extract and return the CSRF token value
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+        }
+      }
+    }
+    return cookieValue;
+  }
         
     </script>
 </body>

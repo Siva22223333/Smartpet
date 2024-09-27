@@ -5,6 +5,8 @@ from .models import contactUs
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
+from .serializers import contactUsSerializers
+from datetime import datetime
 
 # Create your views here.
 
@@ -47,14 +49,13 @@ def seemore(request):
 
 @api_view(['POST'])
 def contactUS_POST(request):
-    print("helllooooooooo")
     if request.method == 'POST':
         serializer = contactUsSerializers(data=request.data)
         if serializer.is_valid():
-            Name=request.POST.get("name")
-            Surname=request.POST.get("surname")
-            Email=request.POST.get("email")
-            Message=request.POST.get("message")
-            serializer.save()  
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+            user_data=serializer.validated_data
+            now = datetime.now()
+            print("now =", now)
+            user_data['Uploded_time']=now
+            serializer.save()
+            return Response("done", status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

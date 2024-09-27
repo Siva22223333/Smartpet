@@ -117,6 +117,46 @@ label{
     background-color: white;
 
 }
+.success_message{
+    right: 26%;
+    position: fixed;
+    background-color: #f0f4f9;
+    width: 40%;
+    height: 40%;
+    z-index: 999;
+    top: 33%;
+    visibility: hidden;
+    border-radius: 20px;
+}
+.success_message-div2{
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.success_message-p{
+    font-size: xx-large;
+    font-weight: 500;
+
+}
+.success_message-img{
+    width: 30px;
+    height: 30px;
+}
+.success_message-div1{
+    width: auto;
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 20px 20px 0px 0px;
+}
+.tick-gif{
+    height: 120px;
+    width: 120px;
+}
+.error-message{
+    font-size: small;
+}
 /*  footer css */
 .div7-div3{
     display: flex;
