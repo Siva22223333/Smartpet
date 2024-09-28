@@ -235,8 +235,8 @@ body {
 }
 
 .card-img {
-    width: 81%;
-    height: 70%;
+    width: 65%;
+    height: 55%;
     object-fit: fill;
     border-radius: 10px;
 }

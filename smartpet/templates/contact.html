@@ -38,24 +38,26 @@
                 <div class="div7-div2-box2">
                     <p class="box2-heading">Get in Touch</p>
                     <form id="form_data" action="" method="post">
-                        {% csrf_token %}
                         <label>
                             Name
                         </label><br>
-                        <input type="text" class="input-text" name="name" id="name" placeholder="Enter Your Name" ><br>
+                        <input type="text" class="input-text" name="name" id="name" placeholder="Enter Your Name" >
                         <span id="name_error" class="error-message"></span>
                         <label>
                             Surname
                         </label><br>
-                        <input type="text" class="input-text" name="surname" id="surname" placeholder="Enter Your Surname" required><br>
+                        <input type="text" class="input-text" name="surname" id="surname" placeholder="Enter Your Surname" >
+                        <span id="surname_error" class="error-message"></span>
                         <label>
                             E-mail
                         </label><br>
-                        <input type="email" class="input-text" name="email" id="email" placeholder="Enter Your E-mail" required><br>
+                        <input type="text" class="input-text" name="email" id="email" placeholder="Enter Your E-mail" >
+                        <span id="email_error" class="error-message"></span>
                         <label>
                             Message
                         </label><br>
-                        <textarea name="message" id="message" placeholder="Enter Your Message" required></textarea><br>
+                        <textarea name="message" id="message" placeholder="Enter Your Message" ></textarea>
+                        <span id="message_error" class="error-message"></span>
                         <input type="submit" id="submit_btn" class="input-submit">
                     </form>
                 </div>
@@ -64,10 +66,10 @@
         
             <div class="success_message" id="success_message">
                 <div class="success_message-div1">
-                    <img src="{% static 'image/close.png' %}" onclick=closemenu() class="success_message-img">
+                    <img src="{% static 'image/close.png' %}" onclick=closemenu()  class="success_message-img">
                 </div>
                 <div class="success_message-div2">
-                    <img src="{% static 'image/Animation.gif' %}" class="tick-gif">
+                    <img src="{% static 'image/Animation.gif' %}" id="gif" class="tick-gif">
                     <p class="success_message-p">
                         Added successfully
                     </p>
@@ -84,72 +86,119 @@
             
     </div>
     <script>
-     function input_field_validation() {
-        const name=document.getElementById(name);
-        const surname=document.getElementById(surname);
-        const email=document.getElementById(email);
-        const message=document.getElementById(message);
-        const name_error=document.getElementById(name_error);
-        
-        name_error.textContent="";
-        let isValid=true;
-        if(name ===""){
-            name_error.textContent="name error";
-            isValid=false;
-        }
-     }
-     
 
     function closemenu() {
         const success_message = document.getElementById("success_message");
-        success_message.style.visibility="hidden";
+        success_message.style.display="none";
+        document.getElementById("gif").style.display="none";
         document.body.style.overflow = "scroll";
-        
+        success_message.reload();
     }
-    setInterval(function(){
-        const success_message = document.getElementById("success_message");
-        success_message.style.visibility="hidden";
-    },5000);
+    
 
-    document.getElementById("form_data").addEventListener("submit", function(event){
+    document.getElementById("form_data").addEventListener("submit", function(event) {
         event.preventDefault(); // Prevent default form submission
 
+        // Get values from the form
         const name = document.getElementById("name").value;
         const surname = document.getElementById("surname").value;
         const email = document.getElementById("email").value;
         const message = document.getElementById("message").value;
 
-        const data = {
-            Name: name,
-            Surname: surname,
-            Email: email,
-            Message: message
-        };
-        const csrfToken = getCookie('csrftoken'); // Adjust the cookie name if needed
+        // Clear previous error messages
+        let name_error = document.getElementById("name_error");
+        let surname_error = document.getElementById("surname_error");
+        let email_error = document.getElementById("email_error");
+        let message_error = document.getElementById("message_error");
 
-        fetch("http://127.0.0.1:8000/api/addcontactus/", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRFToken': csrfToken // Include CSRF token in headers
+        name_error.textContent = "";
+        surname_error.textContent = "";
+        email_error.textContent = "";
+        message_error.textContent = "";
 
-            },
-            body: JSON.stringify(data)
-        })
-        .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+        let valid = true; // Track overall validity
+
+        // Validation chec
+
+        
+        if (!name) {
+            name_error.textContent = "Please Enter Your Name";
+            valid = false; // Mark as invalid
         }
-        return response.json();
-    })
-    .then(data => {
-        document.getElementById("success_message").style.visibility = "visible"; 
-        document.getElementById("form_data").reset();
-    })
-    .catch(function(error) {
-        alert(`Error: ${error.message}`); // Alert on error
+        const namePattern= /^[a-zA-Z\s\-]+$/;
+        if(!namePattern.test(name)){
+            name_error.textContent = "Please Enter a valid name";
+            valid = false;
+        }
+        if(!namePattern.test(surname)){
+            surname_error.textContent = "Please Enter a valid Surname";
+            valid = false;
+        }
+        if (!surname) {
+            surname_error.textContent = "Please Enter Your Surname";
+            valid = false; // Mark as invalid
+        }
+        if (!email) {
+            email_error.textContent = "Please Enter Your Email";
+            valid = false; // Mark as invalid
+        } else {
+            // Email regex pattern for validation
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                email_error.textContent = "Please Enter a valid Email";
+                valid = false; // Mark as invalid
+            }
+        }
+        if (!message) {
+            message_error.textContent = "Please Enter Your Message";
+            valid = false; // Mark as invalid
+        }
+
+    // If valid, proceed with form submission logic
+        if (valid) {
+            const data = {
+                Name: name,
+                Surname: surname,
+                Email: email,
+                Message: message
+            };
+            const csrfToken = getCookie('csrftoken'); // Adjust the cookie name if needed
+
+            fetch("http://127.0.0.1:8000/api/addcontactus/", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrfToken // Include CSRF token in headers
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                document.getElementById("success_message").style.display = "block"; 
+                let gif=document.getElementById("gif");
+                gif.style.display="block";
+                document.getElementById("form_data").reset(); // Reset the form after successful submission
+                setTimeout(() => {
+                closemenu();
+            }, 1100);
+            })
+            
+            .catch(function(error) {
+                console.log(`Error: ${error.message}`); // Alert on error
+            });
+        }
     });
-});
+    // function popup(){
+    //     const success_message = document.getElementById("success_message");
+    //     success_message.style.visibility="hidden";
+    // }
+    // setTimeout(popup(),3000);
+
 
 
         window.onscroll = function() {myFunction()};
@@ -199,12 +248,12 @@
                 if (cookie.substring(0, name.length + 1) === name + "=") {
                 // Extract and return the CSRF token value
                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-            break;
+                break;
+                }
+            }
         }
-      }
-    }
-    return cookieValue;
-  }
+        return cookieValue;
+        }
         
     </script>
 </body>
