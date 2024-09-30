@@ -11,20 +11,20 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-top: 8%;
+    padding-top: 75px;
 }
 
 .services-div {
     display: flex;
     flex-direction: row;
     height: auto;
-    padding-bottom: 36px;
+    padding-bottom: 56px;
 }
 
 .services-p {
     font-size: xx-large;
-    font-weight: bold;
-    padding-left: 6%;
+    font-weight: 700;
+    padding-left: 100px;
 }
 
 .services-div-content {

@@ -46,7 +46,15 @@ def seemore(request):
     template=loader.get_template('seemore.html')
     return HttpResponse(template.render())
 
+def terms(request):
+    template=loader.get_template('terms.html')
+    return HttpResponse(template.render())
 
+def privacy(request):
+    template=loader.get_template('privacy.html')
+    return HttpResponse(template.render())
+
+    
 @api_view(['POST'])
 def contactUS_POST(request):
     if request.method == 'POST':

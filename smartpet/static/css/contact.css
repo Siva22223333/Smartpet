@@ -8,7 +8,7 @@ body {
 }
 .div7-div1{
     display: flex;
-    padding: 75px 0px 9px 108px;
+    padding: 75px 0px 56px 100px;
 }
 .div7-div2{
     display: flex;
@@ -55,7 +55,7 @@ iframe{
 .div7-p1{
     height: auto;
     font-size: xx-large;
-    font-weight: 600;
+    font-weight: 700;
 }
 .div7-p2{
     height: auto;
@@ -93,6 +93,7 @@ textarea{
     font-size: medium;
     font-weight: 500;
     border-radius: 10px;
+    cursor: pointer;
 }
 form{
     display: flex;

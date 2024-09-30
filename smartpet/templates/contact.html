@@ -1,15 +1,18 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/contact.css' %}">
 
 </head>
-<body>
+
+<body id="body">
     <div class="div1">
         {% include "header.html" %}
     </div>
@@ -30,231 +33,232 @@
                     </p>
                 </div>
                 <div class="div7-div2-map">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d987.0007797168262!2d77.22279889048748!3d8.30248690000002!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b04551342c39167%3A0xaaef7cb5ea28b8d2!2sSea%20Sense%20Group%20of%20Companies!5e0!3m2!1sen!2sin!4v1725950587553!5m2!1sen!2sin" width="600" height="450"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d987.0007797168262!2d77.22279889048748!3d8.30248690000002!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b04551342c39167%3A0xaaef7cb5ea28b8d2!2sSea%20Sense%20Group%20of%20Companies!5e0!3m2!1sen!2sin!4v1725950587553!5m2!1sen!2sin"
+                        width="600" height="450" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
             <div class="div7-form">
-                
+
                 <div class="div7-div2-box2">
                     <p class="box2-heading">Get in Touch</p>
                     <form id="form_data" action="" method="post">
                         <label>
                             Name
                         </label><br>
-                        <input type="text" class="input-text" name="name" id="name" placeholder="Enter Your Name" >
+                        <input type="text" class="input-text" name="name" id="name" placeholder="Enter Your Name">
                         <span id="name_error" class="error-message"></span>
                         <label>
                             Surname
                         </label><br>
-                        <input type="text" class="input-text" name="surname" id="surname" placeholder="Enter Your Surname" >
+                        <input type="text" class="input-text" name="surname" id="surname"
+                            placeholder="Enter Your Surname">
                         <span id="surname_error" class="error-message"></span>
                         <label>
                             E-mail
                         </label><br>
-                        <input type="text" class="input-text" name="email" id="email" placeholder="Enter Your E-mail" >
+                        <input type="text" class="input-text" name="email" id="email" placeholder="Enter Your E-mail">
                         <span id="email_error" class="error-message"></span>
                         <label>
                             Message
                         </label><br>
-                        <textarea name="message" id="message" placeholder="Enter Your Message" ></textarea>
+                        <textarea name="message" id="message" placeholder="Enter Your Message"></textarea>
                         <span id="message_error" class="error-message"></span>
                         <input type="submit" id="submit_btn" class="input-submit">
                     </form>
                 </div>
             </div>
-        </div> 
-        
-            <div class="success_message" id="success_message">
-                <div class="success_message-div1">
-                    <img src="{% static 'image/close.png' %}" onclick=closemenu()  class="success_message-img">
-                </div>
-                <div class="success_message-div2">
-                    <img src="{% static 'image/Animation.gif' %}" id="gif" class="tick-gif">
-                    <p class="success_message-p">
-                        Added successfully
-                    </p>
-                </div>
+        </div>
+
+        <div class="success_message" id="success_message">
+            <div class="success_message-div1">
+                <img src="{% static 'image/close.png' %}" onclick=closemenu() class="success_message-img">
             </div>
-        
-                  
+            <div class="success_message-div2">
+                <img src="{% static 'image/Animation.gif' %}" id="gif" class="tick-gif">
+                <p class="success_message-p">
+                    Added successfully
+                </p>
+            </div>
+        </div>
+
+
     </div>
-            <div class="div7-div3">
-                <div class="div7-footer">
-                    {% include "footer.html" %}
-                </div>
-            </div>
-            
+    <div class="div7-div3">
+        <div class="div7-footer">
+            {% include "footer.html" %}
+        </div>
+    </div>
+
     </div>
     <script>
 
-    function closemenu() {
-        const success_message = document.getElementById("success_message");
-        success_message.style.display="none";
-        document.getElementById("gif").style.display="none";
-        document.body.style.overflow = "scroll";
-        success_message.reload();
-    }
-    
-
-    document.getElementById("form_data").addEventListener("submit", function(event) {
-        event.preventDefault(); // Prevent default form submission
-
-        // Get values from the form
-        const name = document.getElementById("name").value;
-        const surname = document.getElementById("surname").value;
-        const email = document.getElementById("email").value;
-        const message = document.getElementById("message").value;
-
-        // Clear previous error messages
-        let name_error = document.getElementById("name_error");
-        let surname_error = document.getElementById("surname_error");
-        let email_error = document.getElementById("email_error");
-        let message_error = document.getElementById("message_error");
-
-        name_error.textContent = "";
-        surname_error.textContent = "";
-        email_error.textContent = "";
-        message_error.textContent = "";
-
-        let valid = true; // Track overall validity
-
-        // Validation chec
-
-        
-        if (!name) {
-            name_error.textContent = "Please Enter Your Name";
-            valid = false; // Mark as invalid
+        function closemenu() {
+            const success_message = document.getElementById("success_message");
+            success_message.style.display = "none";
+            document.getElementById("gif").style.display = "none";
+            document.body.style.overflow = "scroll";
+            success_message.reload();
         }
-        const namePattern= /^[a-zA-Z\s\-]+$/;
-        if(!namePattern.test(name)){
-            name_error.textContent = "Please Enter a valid name";
-            valid = false;
-        }
-        if(!namePattern.test(surname)){
-            surname_error.textContent = "Please Enter a valid Surname";
-            valid = false;
-        }
-        if (!surname) {
-            surname_error.textContent = "Please Enter Your Surname";
-            valid = false; // Mark as invalid
-        }
-        if (!email) {
-            email_error.textContent = "Please Enter Your Email";
-            valid = false; // Mark as invalid
-        } else {
-            // Email regex pattern for validation
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailPattern.test(email)) {
-                email_error.textContent = "Please Enter a valid Email";
+
+
+        document.getElementById("form_data").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Get values from the form
+            const name = document.getElementById("name").value;
+            const surname = document.getElementById("surname").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+
+            // Clear previous error messages
+            let name_error = document.getElementById("name_error");
+            let surname_error = document.getElementById("surname_error");
+            let email_error = document.getElementById("email_error");
+            let message_error = document.getElementById("message_error");
+
+            name_error.textContent = "";
+            surname_error.textContent = "";
+            email_error.textContent = "";
+            message_error.textContent = "";
+
+            let valid = true; // Track overall validity
+
+            // Validation chec
+
+
+            if (!name) {
+                name_error.textContent = "Please Enter Your Name";
                 valid = false; // Mark as invalid
             }
-        }
-        if (!message) {
-            message_error.textContent = "Please Enter Your Message";
-            valid = false; // Mark as invalid
-        }
-
-    // If valid, proceed with form submission logic
-        if (valid) {
-            const data = {
-                Name: name,
-                Surname: surname,
-                Email: email,
-                Message: message
-            };
-            const csrfToken = getCookie('csrftoken'); // Adjust the cookie name if needed
-
-            fetch("http://127.0.0.1:8000/api/addcontactus/", {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRFToken': csrfToken // Include CSRF token in headers
-                },
-                body: JSON.stringify(data)
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+            const namePattern = /^[a-zA-Z\s\-]+$/;
+            if (!namePattern.test(name)) {
+                name_error.textContent = "Please Enter a valid name";
+                valid = false;
+            }
+            if (!namePattern.test(surname)) {
+                surname_error.textContent = "Please Enter a valid Surname";
+                valid = false;
+            }
+            if (!surname) {
+                surname_error.textContent = "Please Enter Your Surname";
+                valid = false; // Mark as invalid
+            }
+            if (!email) {
+                email_error.textContent = "Please Enter Your Email";
+                valid = false; // Mark as invalid
+            } else {
+                // Email regex pattern for validation
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailPattern.test(email)) {
+                    email_error.textContent = "Please Enter a valid Email";
+                    valid = false; // Mark as invalid
                 }
-                return response.json();
-            })
-            .then(data => {
-                document.getElementById("success_message").style.display = "block"; 
-                let gif=document.getElementById("gif");
-                gif.style.display="block";
-                document.getElementById("form_data").reset(); // Reset the form after successful submission
-                setTimeout(() => {
-                closemenu();
-            }, 1100);
-            })
-            
-            .catch(function(error) {
-                console.log(`Error: ${error.message}`); // Alert on error
-            });
-        }
-    });
-    // function popup(){
-    //     const success_message = document.getElementById("success_message");
-    //     success_message.style.visibility="hidden";
-    // }
-    // setTimeout(popup(),3000);
+            }
+            if (!message) {
+                message_error.textContent = "Please Enter Your Message";
+                valid = false; // Mark as invalid
+            }
+
+            // If valid, proceed with form submission logic
+            if (valid) {
+                const data = {
+                    Name: name,
+                    Surname: surname,
+                    Email: email,
+                    Message: message
+                };
+                const csrfToken = getCookie('csrftoken'); // Adjust the cookie name if needed
+
+                fetch("http://127.0.0.1:8000/api/addcontactus/", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': csrfToken // Include CSRF token in headers
+                    },
+                    body: JSON.stringify(data)
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        document.getElementById("success_message").style.display = "block";
+                        document.body.style.overflow = "hidden";
+                        let gif = document.getElementById("gif");
+                        gif.style.display = "block";
+                        document.getElementById("form_data").reset(); // Reset the form after successful submission
+                        setTimeout(() => {
+                            closemenu();
+                        }, 1100);
+                    })
+
+                    .catch(function (error) {
+                        console.log(`Error: ${error.message}`); // Alert on error
+                    });
+            }
+        });
 
 
 
-        window.onscroll = function() {myFunction()};
-        var header  = document.getElementById("header");
+        window.onscroll = function () { myFunction() };
+        var header = document.getElementById("header");
         var sticky = header.offsetTop;
         var map = document.querySelector(".div7-div2-map");
         function myFunction() {
-                if (window.pageYOffset > sticky) {
-                    header.classList.add("sticky");
-                    if (window.matchMedia("(max-width: 320px)").matches) {
-                        map.style.top= "50%";
-                    }
-                    if (window.matchMedia("(max-width: 562px)").matches) {
-                        map.style.top= "50%";
-                    }
-                    if (window.matchMedia("(max-width: 768px)").matches) {
-                        map.style.top= "50%";
-                    }
-                    else  {
-                        map.style.top= "42%";
-                    }
+            if (window.pageYOffset > sticky) {
+                header.classList.add("sticky");
+                if (window.matchMedia("(max-width: 320px)").matches) {
+                    map.style.top = "50%";
+                }
+                if (window.matchMedia("(max-width: 562px)").matches) {
+                    map.style.top = "50%";
+                }
+                if (window.matchMedia("(max-width: 768px)").matches) {
+                    map.style.top = "50%";
                 }
                 else {
-                    header.classList.remove("sticky");
-                    if (window.matchMedia("(max-width: 320px)").matches) {
-                        map.style.top= "64%";
-                    }
-                    if (window.matchMedia("(max-width: 562px)").matches) {
-                        map.style.top= "64%";
-                    }
-                    if (window.matchMedia("(max-width: 768px)").matches) {
-                        map.style.top= "63%";
-                    }
-                    else {
-                        map.style.top= "55%";
-                    }
+                    map.style.top = "42%";
                 }
-            
+            }
+            else {
+                header.classList.remove("sticky");
+                if (window.matchMedia("(max-width: 320px)").matches) {
+                    map.style.top = "64%";
+                }
+                if (window.matchMedia("(max-width: 562px)").matches) {
+                    map.style.top = "64%";
+                }
+                if (window.matchMedia("(max-width: 768px)").matches) {
+                    map.style.top = "63%";
+                }
+                else {
+                    map.style.top = "55%";
+                }
+            }
+
         }
         function getCookie(name) {
             var cookieValue = null;
             if (document.cookie && document.cookie !== "") {
-            var cookies = document.cookie.split(";");
-            for (var i = 0; i < cookies.length; i++) {
-                var cookie = cookies[i].trim();
-                // Check if the cookie name matches the CSRF token cookie name
-                if (cookie.substring(0, name.length + 1) === name + "=") {
-                // Extract and return the CSRF token value
-                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                break;
+                var cookies = document.cookie.split(";");
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = cookies[i].trim();
+                    // Check if the cookie name matches the CSRF token cookie name
+                    if (cookie.substring(0, name.length + 1) === name + "=") {
+                        // Extract and return the CSRF token value
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
                 }
             }
+            return cookieValue;
         }
-        return cookieValue;
-        }
-        
+
     </script>
 </body>
+
 </html>

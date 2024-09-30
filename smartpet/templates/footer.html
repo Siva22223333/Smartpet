@@ -23,9 +23,8 @@
         </div>
         <div class="div7-footer-div3">
             <p class="div7-footer-p2">Legal</p>
-            <a class="div7-footer-a" href="#">Terms & Conditions</a>
-            <a class="div7-footer-a" href="#">Privacy Policy</a>
-            <a class="div7-footer-a" href="#">Return & Refund Policy</a>
+            <a class="div7-footer-a" href="{% url 'terms' %}">Terms & Conditions</a>
+            <a class="div7-footer-a" href="{% url 'privacy' %}">Privacy Policy</a>
         </div>
     </div>
 
@@ -46,3 +45,7 @@
             <img src="{% static 'image/twitter.png' %}" class="social-media">
         </a>
     </div>
+
+    <div class="footer-div">
+        <p class="footer">Copyright © 2024 - 2029 Smartpets | All Right Reserved</p>
+      </div>

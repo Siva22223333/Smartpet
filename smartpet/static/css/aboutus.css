@@ -10,8 +10,7 @@ body {
     display: flex;
     align-items: center;
     flex-direction: row;
-    margin: 25px 0px 0px 33px;
-    color: royalblue;
+    margin: 75px 0px 0px 100px;
 }
 .div2{
     margin-top: 70px;
@@ -34,7 +33,6 @@ body {
 .div2-p1{
     font-size: xx-large;
     font-weight: 700;
-    padding-bottom: 30px;
 }
 .div2-p2{
     font-size: x-large;
