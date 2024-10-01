@@ -80,7 +80,7 @@ iframe{
 }
 textarea{
     height: 51px;
-    width: 430px;
+    max-width: 430px;
     border: none;
     border-radius: 6px;
     padding: 10px;
@@ -209,7 +209,7 @@ label{
     }
     textarea {
         height: 30px;
-        width: 384px;
+        max-width: 384px;
         font-size: medium;
     }
     .div7-div2-box2{
@@ -284,7 +284,7 @@ label{
     }
     textarea {
         height: 30px;
-        width: 196px;
+        max-width: 196px;
         font-size: medium;
     }
     .div7-div2-box2{
@@ -356,7 +356,7 @@ label{
     }
     textarea {
         height: 30px;
-        width: 196px;
+        max-width: 196px;
         font-size: smaller;
     }
     /* success popup */

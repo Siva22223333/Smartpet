@@ -98,7 +98,6 @@
             const success_message = document.getElementById("success_message");
             success_message.style.display = "none";
             document.getElementById("gif").style.display = "none";
-            document.body.style.overflow = "scroll";
             success_message.reload();
         }
 
@@ -125,7 +124,7 @@
 
             let valid = true; // Track overall validity
 
-            // Validation chec
+            // Validation check
 
 
             if (!name) {
@@ -187,7 +186,6 @@
                     })
                     .then(data => {
                         document.getElementById("success_message").style.display = "block";
-                        document.body.style.overflow = "hidden";
                         let gif = document.getElementById("gif");
                         gif.style.display = "block";
                         document.getElementById("form_data").reset(); // Reset the form after successful submission

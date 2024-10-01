@@ -19,6 +19,7 @@ body {
 .category-p-div{
     padding: 40px 0px;
     display: flex;
+    align-items: center;
 }
 .card-div{
     display: flex;
@@ -89,11 +90,18 @@ body {
         width: 175px;
         margin: 0px;
     }
+    .back-btn-img {
+        height: 34px;
+        width: 34px;
+    }
+    .category-p {
+        font-size: x-large;
+    }
 }
 @media screen and (max-width:562px) {
     .card {
-        height: 249px;
-        width: 175px;
+        height: 179px;
+        width: 156px;
         margin: 0px;
     }
     .card-div {
@@ -103,6 +111,16 @@ body {
     .div2{
         padding: 0px ;
     }
+    .category-p {
+        font-size: x-large;
+    }
+    .back-btn-img {
+        height: 26px;
+        width: 26px;
+    }
+    .card-p {
+        font-size: medium;
+    }
 }
 @media screen and (max-width:320px) {
     .card-div {
@@ -110,5 +128,22 @@ body {
     }
     .div2{
         padding: 0px 10px;
+    }
+    .category-p {
+        font-size: larger;
+    }
+    .back-btn-img {
+        height: 26px;
+        width: 26px;
+    }
+    .card-p {
+        font-size: medium;
+    }
+    .card-img {
+        height: 103px;
+    }
+    .card {
+        height: 170px;
+        width: 121px;
     }
 }
